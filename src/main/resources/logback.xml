@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- Log message format -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>log/ESBInspectorLab.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <fileNamePattern>ESBInspectorLab.%i.log.zip</fileNamePattern>
+            <minIndex>1</minIndex>
+            <maxIndex>4</maxIndex>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>5MB</maxFileSize>
+        </triggeringPolicy>
+        <!-- Log message format -->
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- Setting the root level of logging to INFO -->
+    <root level="info">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>
