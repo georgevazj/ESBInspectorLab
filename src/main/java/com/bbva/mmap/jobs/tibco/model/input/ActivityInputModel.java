@@ -9,6 +9,7 @@ public class ActivityInputModel {
 
     private DestinationQueueModel destinationQueueModel;
     private DestinationTopicModel destinationTopicModel;
+    private ActivityInputChooseModel activityInputChooseModel;
 
     @XmlElement(name = "destinationQueue")
     public DestinationQueueModel getDestinationQueueModel() {
@@ -26,5 +27,14 @@ public class ActivityInputModel {
 
     public void setDestinationTopicModel(DestinationTopicModel destinationTopicModel) {
         this.destinationTopicModel = destinationTopicModel;
+    }
+
+    @XmlElement(name = "choose")
+    public ActivityInputChooseModel getActivityInputChooseModel() {
+        return activityInputChooseModel;
+    }
+
+    public void setActivityInputChooseModel(ActivityInputChooseModel activityInputChooseModel) {
+        this.activityInputChooseModel = activityInputChooseModel;
     }
 }

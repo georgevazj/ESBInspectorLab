@@ -6,6 +6,7 @@
         <fileset id="fileset" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/src/main/java/com/bbva/mmap/common/configuration/ApplicationConfig.java</file>
           <file>file://$MODULE_DIR$/src/main/java/com/bbva/mmap/Launcher.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/bbva/mmap/jobs/tibco/TibcoConfiguration.java</file>
         </fileset>
       </configuration>
     </facet>

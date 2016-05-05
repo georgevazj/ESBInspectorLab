@@ -15,7 +15,7 @@ import java.util.List;
  */
 
 @XmlRootElement(name = "ProcessDefinition")
-@XmlType(propOrder = {"applicationName","name","startName","starterModels","activityModels","transitionModels","groupModels"})
+@XmlType(propOrder = {"applicationName","name","startName","starterModels","activityModels","groupModels"})
 public class ProcessDefinitionModel implements ResourceAware{
 
     private String applicationName;
@@ -23,7 +23,7 @@ public class ProcessDefinitionModel implements ResourceAware{
     private String startName;
     private List<StarterModel> starterModels = new ArrayList<StarterModel>();
     private List<ActivityModel> activityModels = new ArrayList<ActivityModel>();
-    private List<TransitionModel> transitionModels = new ArrayList<TransitionModel>();
+    //private List<TransitionModel> transitionModels = new ArrayList<TransitionModel>();
     private List<GroupModel> groupModels = new ArrayList<GroupModel>();
 
     @XmlAttribute(name ="application")
@@ -65,14 +65,14 @@ public class ProcessDefinitionModel implements ResourceAware{
         this.activityModels = activityModels;
     }
 
-    @XmlElement(name = "transition")
+    /**@XmlElement(name = "transition")
     public List<TransitionModel> getTransitionModels() {
         return transitionModels;
     }
 
     public void setTransitionModels(List<TransitionModel> transitionModels) {
         this.transitionModels = transitionModels;
-    }
+    }**/
 
     @Override
     public void setResource(Resource resource) {

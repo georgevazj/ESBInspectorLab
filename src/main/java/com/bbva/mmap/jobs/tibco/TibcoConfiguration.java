@@ -5,7 +5,9 @@ import com.bbva.mmap.jobs.tibco.listener.TibcoListener;
 import com.bbva.mmap.jobs.tibco.model.input.ProcessDefinitionModel;
 import com.bbva.mmap.jobs.tibco.model.output.TibcoActivityModel;
 import com.bbva.mmap.jobs.tibco.model.output.TibcoDataModel;
+import com.bbva.mmap.jobs.tibco.model.output.TibcoOutput;
 import com.bbva.mmap.jobs.tibco.processor.TibcoJobProcessor;
+import com.bbva.mmap.jobs.tibco.processor.TibcoOutputProcessor;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
@@ -96,15 +98,15 @@ public class TibcoConfiguration{
 
     //CONFIGURACION DEL PROCESSOR
     @Bean
-    public TibcoJobProcessor tibcoProcessor(){
-        return new TibcoJobProcessor();
+    public TibcoOutputProcessor tibcoProcessor(){
+        return new TibcoOutputProcessor();
     }
 
     //CONFIGURACION DEL WRITER
     @Bean(destroyMethod = "")
-    public StaxEventItemWriter<ProcessDefinitionModel> staxEventItemWriter(){
+    public StaxEventItemWriter<TibcoOutput> staxEventItemWriter(){
         Resource resource = new FileSystemResource(xmlOutput + "ESBInspector_" + tibcoHostname + ".xml" );
-        StaxEventItemWriter<ProcessDefinitionModel> staxEventItemWriter = new StaxEventItemWriter<ProcessDefinitionModel>();
+        StaxEventItemWriter<TibcoOutput> staxEventItemWriter = new StaxEventItemWriter<TibcoOutput>();
         staxEventItemWriter.setResource(resource);
         staxEventItemWriter.setEncoding("UTF-8");
         staxEventItemWriter.setVersion("1.0");
@@ -120,7 +122,7 @@ public class TibcoConfiguration{
     @Bean
     public Jaxb2Marshaller jaxb2Marshaller() {
         Jaxb2Marshaller jaxb2Marshaller = new Jaxb2Marshaller();
-        jaxb2Marshaller.setClassesToBeBound(ProcessDefinitionModel.class);
+        jaxb2Marshaller.setClassesToBeBound(TibcoOutput.class);
         return jaxb2Marshaller;
     }
 
@@ -144,7 +146,7 @@ public class TibcoConfiguration{
     public Step step(){
         return stepBuilderFactory.get("step")
                 .allowStartIfComplete(true)
-                .<ProcessDefinitionModel,ProcessDefinitionModel>chunk(1)
+                .<ProcessDefinitionModel,TibcoOutput>chunk(1)
                 .reader(multiResourceItemReader())
                 .processor(tibcoProcessor())
                 .writer(staxEventItemWriter())

@@ -12,7 +12,6 @@ public class TibcoActivityModel {
 
     private String name;
     private String type;
-    private TibcoEMSConnection tibcoEMSConnection;
     private String destination;
 
 
@@ -30,15 +29,6 @@ public class TibcoActivityModel {
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    @XmlElement(name = "connection")
-    public TibcoEMSConnection getTibcoEMSConnection() {
-        return tibcoEMSConnection;
-    }
-
-    public void setTibcoEMSConnection(TibcoEMSConnection tibcoEMSConnection) {
-        this.tibcoEMSConnection = tibcoEMSConnection;
     }
 
     public String getDestination() {

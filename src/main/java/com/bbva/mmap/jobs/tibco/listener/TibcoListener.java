@@ -136,7 +136,7 @@ public class TibcoListener implements JobExecutionListener {
                 if (fileXmlPoolPath.isDirectory()) {
                     try {
                         logger.info("Clearing " + fileXmlPoolPath.getCanonicalPath());
-                        //FileUtils.cleanDirectory(fileXmlPoolPath);
+                        FileUtils.cleanDirectory(fileXmlPoolPath);
                     } catch (IOException e) {
                         logger.error(e.toString());
                     }
