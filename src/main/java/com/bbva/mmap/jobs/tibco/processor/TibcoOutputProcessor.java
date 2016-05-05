@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.print.attribute.standard.Destination;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
@@ -95,66 +96,193 @@ public class TibcoOutputProcessor implements ItemProcessor<ProcessDefinitionMode
         }
 
         List<StarterModel> starterModels = processDefinitionModel.getStarterModels();
-        List<ActivityModel> activityModels = processDefinitionModel.getActivityModels();
-        List<GroupModel> groupModels = processDefinitionModel.getGroupModels();
-
-        try{
-            //SERVICIOS IA Y SS (FUNCIONAN DE LA MISMA MANERA)
-            if (serviceName.contains("_SS_") || serviceName.contains("_IA_")){
+        try {
+            //SERVICIOS IA, IP y SS (FUNCIONAN DE LA MISMA MANERA)
+            if (serviceName.contains("_SS_") || serviceName.contains("_IA_") || serviceName.contains("_IP_")) {
                 //STARTER > CONSUMIDOR
-                for (StarterModel starterModel:starterModels){
-                    if(starterModel.getType().contains("jms")){
-                            List<StarterConfigModel> starterConfigModels = starterModel.getStarterConfigModels();
-                            for (StarterConfigModel starterConfigModel:starterConfigModels){
-                                List<SessionAttributesModel> sessionAttributesModels = starterConfigModel.getSessionAttributesModels();
-                                for (SessionAttributesModel sessionAttributesModel:sessionAttributesModels){
-                                    String destination = getQueueName(applicationPath,sessionAttributesModel.getDestination());
+                for (StarterModel starterModel : starterModels) {
+                    if (starterModel.getType().contains("jms")) {
+                        List<StarterConfigModel> starterConfigModels = starterModel.getStarterConfigModels();
+                        for (StarterConfigModel starterConfigModel : starterConfigModels) {
+                            List<SessionAttributesModel> sessionAttributesModels = starterConfigModel.getSessionAttributesModels();
+                            for (SessionAttributesModel sessionAttributesModel : sessionAttributesModels) {
+                                String destination = getQueueName(applicationPath, sessionAttributesModel.getDestination());
 
-                                    TibcoOutputActivity tibcoOutputActivity = new TibcoOutputActivity();
-                                    tibcoOutputActivity.setApplication(applicationName);
-                                    tibcoOutputActivity.setDestination(destination);
-                                    tibcoOutputActivity.setService(serviceName);
-                                    tibcoOutputActivity.setType("Consumer");
-                                    tibcoOutputActivity.setDomain(domain);
-                                    tibcoOutputActivity.setUuaa(uuaa);
+                                TibcoOutputActivity tibcoOutputActivity = new TibcoOutputActivity();
+                                tibcoOutputActivity.setApplication(applicationName);
+                                tibcoOutputActivity.setDestination(destination);
+                                tibcoOutputActivity.setService(serviceName);
+                                tibcoOutputActivity.setType("Consumer");
+                                tibcoOutputActivity.setDomain(domain);
+                                tibcoOutputActivity.setUuaa(uuaa);
 
-                                    tibcoOutput.getTibcoOutputActivities().add(tibcoOutputActivity);
-                                }
+                                tibcoOutput.getTibcoOutputActivities().add(tibcoOutputActivity);
                             }
+                        }
 
-                            //SE BUSCAN LOS FICHEROS DE BACKEND PARA LOS PRODUCTORES
-                            File dir = new File(applicationPath);
-                            List<File> files = (List<File>) FileUtils.listFiles(dir, TrueFileFilter.INSTANCE, TrueFileFilter.INSTANCE);
-                            for (File file:files){
-                                if (file.getCanonicalPath().contains(serviceName) && file.getName().contains("BackEnd")) {
-                                    JAXBContext jaxbContext = JAXBContext.newInstance(ProcessDefinitionModel.class);
-                                    Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+                        //SE BUSCAN LOS FICHEROS DE BACKEND PARA LOS PRODUCTORES
+                        File dir = new File(applicationPath);
+                        List<File> files = (List<File>) FileUtils.listFiles(dir, TrueFileFilter.INSTANCE, TrueFileFilter.INSTANCE);
+                        for (File file : files) {
 
-                                    String textContent = FileUtils.readFileToString(file);
-                                    String newText = textContent.replace("pd:", "");
-                                    newText = newText.replace("ns1:", "");
-                                    newText = newText.replace("ns2:", "");
-                                    newText = newText.replace("<ns:","<");
-                                    newText = newText.replace("</ns:","</");
-                                    newText = newText.replace("xsl:", "");
-                                    newText = newText.replace("pfx:2", "");
-                                    newText = newText.replace("pfx:", "");
+                            if (!applicationName.contains("RDR_SERVICE") && file.getCanonicalPath().contains(serviceName) && file.getName().contains("BackEnd")) {
+                                JAXBContext jaxbContext = JAXBContext.newInstance(ProcessDefinitionModel.class);
+                                Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 
-                                    StringReader stringReader = new StringReader(newText);
-                                    ProcessDefinitionModel processDefinitionModel1 = (ProcessDefinitionModel) unmarshaller.unmarshal(stringReader);
+                                String textContent = FileUtils.readFileToString(file);
+                                String newText = textContent.replace("pd:", "");
+                                newText = newText.replace("ns1:", "");
+                                newText = newText.replace("ns2:", "");
+                                newText = newText.replace("<ns:", "<");
+                                newText = newText.replace("</ns:", "</");
+                                newText = newText.replace("xsl:", "");
+                                newText = newText.replace("pfx:2", "");
+                                newText = newText.replace("pfx:", "");
 
-                                    //PRODUCTORES SIN BUCLE
-                                    List<ActivityModel> activityModels1 = processDefinitionModel1.getActivityModels();
-                                    for (ActivityModel activityModel:activityModels1){
-                                        String destination = "";
-                                        if (activityModel.getType().contains("jms")){
+                                StringReader stringReader = new StringReader(newText);
+                                ProcessDefinitionModel processDefinitionModel1 = (ProcessDefinitionModel) unmarshaller.unmarshal(stringReader);
+
+                                //PRODUCTORES SIN BUCLE
+                                List<ActivityModel> activityModels1 = processDefinitionModel1.getActivityModels();
+                                for (ActivityModel activityModel : activityModels1) {
+                                    String destination = "";
+                                    if (activityModel.getType().contains("jms")) {
+                                        List<ActivityConfigModel> activityConfigModels = activityModel.getActivityConfigModels();
+                                        for (ActivityConfigModel activityConfigModel : activityConfigModels) {
+                                            List<SessionAttributesModel> sessionAttributesModels = activityConfigModel.getSessionAttributesModels();
+
+                                            for (SessionAttributesModel sessionAttributesModel : sessionAttributesModels) {
+                                                if (!sessionAttributesModel.getDestination().isEmpty()) {
+                                                    destination = getQueueName(applicationPath, sessionAttributesModel.getDestination());
+                                                    TibcoOutputActivity tibcoOutputActivity = new TibcoOutputActivity();
+                                                    tibcoOutputActivity.setApplication(applicationName);
+                                                    tibcoOutputActivity.setDestination(destination);
+                                                    tibcoOutputActivity.setService(serviceName);
+                                                    tibcoOutputActivity.setType("Producer");
+                                                    tibcoOutputActivity.setDomain(domain);
+                                                    tibcoOutputActivity.setUuaa(uuaa);
+
+                                                    tibcoOutput.getTibcoOutputActivities().add(tibcoOutputActivity);
+
+                                                }
+                                            }
+                                        }
+
+                                        if (destination.isEmpty()){
+                                            ActivityInputBindingsModel activityInputBindingsModel = activityModel.getActivityInputBindingsModel();
+                                            ActivityInputModel activityInputModel = activityInputBindingsModel.getActivityInputModel();
+                                            DestinationQueueModel destinationQueueModel = activityInputModel.getDestinationQueueModel();
+                                            DestinationValueOfModel destinationValueOfModel = destinationQueueModel.getValueOfModel();
+
+                                            destination = getQueueName(applicationPath,destinationValueOfModel.getSelect());
+
+                                            TibcoOutputActivity tibcoOutputActivity = new TibcoOutputActivity();
+                                            tibcoOutputActivity.setApplication(applicationName);
+                                            tibcoOutputActivity.setDestination(destination);
+                                            tibcoOutputActivity.setService(serviceName);
+                                            tibcoOutputActivity.setType("Producer");
+                                            tibcoOutputActivity.setDomain(domain);
+                                            tibcoOutputActivity.setUuaa(uuaa);
+
+                                            tibcoOutput.getTibcoOutputActivities().add(tibcoOutputActivity);
+                                        }
+
+                                    }
+                                }
+
+                                //PRODUCTORES INVOCADOS EN BUCLE
+                                List<GroupModel> groupModels1 = processDefinitionModel1.getGroupModels();
+                                for (GroupModel groupModel : groupModels1) {
+                                    List<ActivityModel> groupActivityModels = groupModel.getActivityModels();
+                                    for (ActivityModel activityModel : groupActivityModels) {
+                                        if (activityModel.getType().contains("jms")) {
                                             List<ActivityConfigModel> activityConfigModels = activityModel.getActivityConfigModels();
-                                            for (ActivityConfigModel activityConfigModel:activityConfigModels){
+                                            for (ActivityConfigModel activityConfigModel : activityConfigModels) {
                                                 List<SessionAttributesModel> sessionAttributesModels = activityConfigModel.getSessionAttributesModels();
 
-                                                for (SessionAttributesModel sessionAttributesModel:sessionAttributesModels){
-                                                    if (!sessionAttributesModel.getDestination().isEmpty()){
-                                                        destination = getQueueName(applicationPath,sessionAttributesModel.getDestination());
+
+                                                for (SessionAttributesModel sessionAttributesModel : sessionAttributesModels) {
+                                                    if (!sessionAttributesModel.getDestination().isEmpty()) {
+                                                        String destination = getQueueName(applicationPath, sessionAttributesModel.getDestination());
+
+                                                        TibcoOutputActivity tibcoOutputActivity = new TibcoOutputActivity();
+                                                        tibcoOutputActivity.setApplication(applicationName);
+                                                        tibcoOutputActivity.setDestination(destination);
+                                                        tibcoOutputActivity.setService(serviceName);
+                                                        tibcoOutputActivity.setType("Producer");
+                                                        tibcoOutputActivity.setDomain(domain);
+                                                        tibcoOutputActivity.setUuaa(uuaa);
+
+                                                        tibcoOutput.getTibcoOutputActivities().add(tibcoOutputActivity);
+
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                            }
+                            //CASO ESPECIFICO PARA RDR_SERVICE
+                            else if (applicationName.contains("RDR_SERVICE") && file.getCanonicalPath().contains(serviceName) && file.getName().contains("RequestRDR")) {
+                                JAXBContext jaxbContext = JAXBContext.newInstance(ProcessDefinitionModel.class);
+                                Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+                                String textContent = FileUtils.readFileToString(file);
+                                String newText = textContent.replace("pd:", "");
+                                newText = newText.replace("ns1:", "");
+                                newText = newText.replace("ns2:", "");
+                                newText = newText.replace("<ns:", "<");
+                                newText = newText.replace("</ns:", "</");
+                                newText = newText.replace("xsl:", "");
+                                newText = newText.replace("pfx:2", "");
+                                newText = newText.replace("pfx:", "");
+
+                                StringReader stringReader = new StringReader(newText);
+                                ProcessDefinitionModel processDefinitionModel1 = (ProcessDefinitionModel) unmarshaller.unmarshal(stringReader);
+
+                                //PRODUCTORES SIN BUCLE
+                                List<ActivityModel> activityModels1 = processDefinitionModel1.getActivityModels();
+                                for (ActivityModel activityModel : activityModels1) {
+                                    String destination = "";
+                                    if (activityModel.getType().contains("jms")) {
+                                        List<ActivityConfigModel> activityConfigModels = activityModel.getActivityConfigModels();
+                                        for (ActivityConfigModel activityConfigModel : activityConfigModels) {
+                                            List<SessionAttributesModel> sessionAttributesModels = activityConfigModel.getSessionAttributesModels();
+
+                                            for (SessionAttributesModel sessionAttributesModel : sessionAttributesModels) {
+                                                if (!sessionAttributesModel.getDestination().isEmpty()) {
+                                                    destination = getQueueName(applicationPath, sessionAttributesModel.getDestination());
+
+                                                    TibcoOutputActivity tibcoOutputActivity = new TibcoOutputActivity();
+                                                    tibcoOutputActivity.setApplication(applicationName);
+                                                    tibcoOutputActivity.setDestination(destination);
+                                                    tibcoOutputActivity.setService(serviceName);
+                                                    tibcoOutputActivity.setType("Producer");
+                                                    tibcoOutputActivity.setDomain(domain);
+                                                    tibcoOutputActivity.setUuaa(uuaa);
+
+                                                    tibcoOutput.getTibcoOutputActivities().add(tibcoOutputActivity);
+
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                //PRODUCTORES INVOCADOS EN BUCLE
+                                List<GroupModel> groupModels1 = processDefinitionModel1.getGroupModels();
+                                for (GroupModel groupModel : groupModels1) {
+                                    List<ActivityModel> groupActivityModels = groupModel.getActivityModels();
+                                    for (ActivityModel activityModel : groupActivityModels) {
+                                        if (activityModel.getType().contains("jms")) {
+                                            List<ActivityConfigModel> activityConfigModels = activityModel.getActivityConfigModels();
+                                            for (ActivityConfigModel activityConfigModel : activityConfigModels) {
+                                                List<SessionAttributesModel> sessionAttributesModels = activityConfigModel.getSessionAttributesModels();
+
+
+                                                for (SessionAttributesModel sessionAttributesModel : sessionAttributesModels) {
+                                                    if (!sessionAttributesModel.getDestination().isEmpty()) {
+                                                        String destination = getQueueName(applicationPath, sessionAttributesModel.getDestination());
 
                                                         TibcoOutputActivity tibcoOutputActivity = new TibcoOutputActivity();
                                                         tibcoOutputActivity.setApplication(applicationName);
@@ -172,100 +300,12 @@ public class TibcoOutputProcessor implements ItemProcessor<ProcessDefinitionMode
                                         }
                                     }
 
-                                    //PRODUCTORES INVOCADOS EN BUCLE
-                                    List<GroupModel> groupModels1 = processDefinitionModel1.getGroupModels();
-                                    for (GroupModel groupModel:groupModels1){
-                                        List<ActivityModel> groupActivityModels = groupModel.getActivityModels();
-                                        for (ActivityModel activityModel:groupActivityModels){
-                                            if (activityModel.getType().contains("jms")){
-                                                List<ActivityConfigModel> activityConfigModels = activityModel.getActivityConfigModels();
-                                                for (ActivityConfigModel activityConfigModel:activityConfigModels){
-                                                    List<SessionAttributesModel> sessionAttributesModels = activityConfigModel.getSessionAttributesModels();
-
-
-                                                    for (SessionAttributesModel sessionAttributesModel:sessionAttributesModels){
-                                                        if (!sessionAttributesModel.getDestination().isEmpty()){
-                                                            String destination = getQueueName(applicationPath,sessionAttributesModel.getDestination());
-
-                                                            TibcoOutputActivity tibcoOutputActivity = new TibcoOutputActivity();
-                                                            tibcoOutputActivity.setApplication(applicationName);
-                                                            tibcoOutputActivity.setDestination(destination);
-                                                            tibcoOutputActivity.setService(serviceName);
-                                                            tibcoOutputActivity.setType("Producer");
-                                                            tibcoOutputActivity.setDomain(domain);
-                                                            tibcoOutputActivity.setUuaa(uuaa);
-
-                                                            tibcoOutput.getTibcoOutputActivities().add(tibcoOutputActivity);
-
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-
-                                }
-                            }
-                        }
-                }
-                //ACTIVIDAD Y ACTIVIDADES EN BUCLE (GROUP) > PRODUCTOR
-                /**for (ActivityModel activityModel:activityModels){
-                    String destination = "";
-                    if (activityModel.getType().contains("jms")){
-                        List<ActivityConfigModel> activityConfigModels = activityModel.getActivityConfigModels();
-                        for (ActivityConfigModel activityConfigModel:activityConfigModels){
-                            List<SessionAttributesModel> sessionAttributesModels = activityConfigModel.getSessionAttributesModels();
-
-                            for (SessionAttributesModel sessionAttributesModel:sessionAttributesModels){
-                                if (!sessionAttributesModel.getDestination().isEmpty()){
-                                    destination = getQueueName(applicationPath,sessionAttributesModel.getDestination());
-
-                                    TibcoOutputActivity tibcoOutputActivity = new TibcoOutputActivity();
-                                    tibcoOutputActivity.setApplication(applicationName);
-                                    tibcoOutputActivity.setDestination(destination);
-                                    tibcoOutputActivity.setService(serviceName);
-                                    tibcoOutputActivity.setType("Producer");
-                                    tibcoOutputActivity.setDomain(domain);
-                                    tibcoOutputActivity.setUuaa(uuaa);
-
-                                    tibcoOutput.getTibcoOutputActivities().add(tibcoOutputActivity);
-
                                 }
                             }
                         }
                     }
                 }
-                for (GroupModel groupModel:groupModels){
-                    List<ActivityModel> groupActivityModels = groupModel.getActivityModels();
-                    for (ActivityModel activityModel:groupActivityModels){
-                        if (activityModel.getType().contains("jms")){
-                            List<ActivityConfigModel> activityConfigModels = activityModel.getActivityConfigModels();
-                            for (ActivityConfigModel activityConfigModel:activityConfigModels){
-                                List<SessionAttributesModel> sessionAttributesModels = activityConfigModel.getSessionAttributesModels();
-
-
-                                for (SessionAttributesModel sessionAttributesModel:sessionAttributesModels){
-                                    if (!sessionAttributesModel.getDestination().isEmpty()){
-                                        String destination = getQueueName(applicationPath,sessionAttributesModel.getDestination());
-
-                                        TibcoOutputActivity tibcoOutputActivity = new TibcoOutputActivity();
-                                        tibcoOutputActivity.setApplication(applicationName);
-                                        tibcoOutputActivity.setDestination(destination);
-                                        tibcoOutputActivity.setService(serviceName);
-                                        tibcoOutputActivity.setType("Producer");
-                                        tibcoOutputActivity.setDomain(domain);
-                                        tibcoOutputActivity.setUuaa(uuaa);
-
-                                        tibcoOutput.getTibcoOutputActivities().add(tibcoOutputActivity);
-
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }**/
-
-            }
+            } //FINAL DE SERVICIOS SS, IA Y IP
         }
         catch (NullPointerException ex){
 
@@ -283,18 +323,35 @@ public class TibcoOutputProcessor implements ItemProcessor<ProcessDefinitionMode
 
         //Un caso muy especifico de KJOS
         if(destinationPath.contains("concat")){
-            destinationPath = destinationPath.replace("concat(","");
-            destinationPath = destinationPath.replace(")","");
-            destinationPath = destinationPath.replace("$_globalVariables/ns8:GlobalVariables","");
-            destinationPath = destinationPath.replace(",","");
-            String separator = Pattern.quote("'");
-            String[] destinationPathList = destinationPath.split(separator);
+            try{
 
-            queueHeader = destinationPathList[1];
-            String cfgPath = destinationPathList[2];
-            queueEnv = fileSeeker.seekJMSConf(applicationPath,cfgPath);
-            queueEnd = destinationPathList[3];
-            queueName = queueHeader + queueEnv + queueEnd;
+                destinationPath = destinationPath.replace("concat(","");
+                destinationPath = destinationPath.replace(")","");
+                destinationPath = destinationPath.replace("$_globalVariables/GlobalVariables","");
+                destinationPath = destinationPath.replace(",","");
+                destinationPath = destinationPath.replace("\"","");
+
+                String[] destinationPathList = destinationPath.split(".");
+
+                for (String cfgPath:destinationPathList){
+                    String varValue = fileSeeker.seekJMSConf(applicationPath,cfgPath);
+                    if(varValue.startsWith("GLB")){
+                        queueHeader = varValue;
+                    }
+                    else if(varValue.length() <= 3){
+                        queueEnv = "." + varValue + ".";
+                    }
+                    else if(!varValue.startsWith("GLB") && varValue.length() > 3){
+                        queueEnd = varValue;
+                    }
+                }
+
+                queueName = queueHeader + queueEnv + queueEnd;
+            }
+            catch (IndexOutOfBoundsException ex){
+                queueName = "QUEUE_ERROR";
+                logger.error("There was an error while getting the queue name for " + applicationPath);
+            }
         }
         else{
             String[] destinationPathList = destinationPath.split("%%");
@@ -320,7 +377,7 @@ public class TibcoOutputProcessor implements ItemProcessor<ProcessDefinitionMode
                     else if (item.startsWith(".") && item.endsWith(".") && item.length() > 1){
                         queueEnv = item;
                     }
-                    else if(item.startsWith(".") && !item.endsWith(".")){
+                    else if(item.startsWith(".") && !item.endsWith(".")) {
                         queueEnd = item;
                     }
                 }
