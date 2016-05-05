@@ -53,11 +53,14 @@ public class FileSeeker {
                     if(fileListed.getName().startsWith("Starter_")){
                         tibcoServicesFiles.add(fileListed.getCanonicalPath());
                     }
+                    else if (fileListed.getCanonicalPath().contains("BackEnd")){
+                        tibcoServicesFiles.add(fileListed.getCanonicalPath());
+                    }
                     //Busca en el resto de ficheros .process si existe la etiqueta destination e incluye su ruta en la lista
                     else{
                         List<String> fileContent = FileUtils.readLines(fileListed);
                         for(String line:fileContent){
-                            if(line.contains("com.tibco.plugin.jms") || line.contains("<destination") || line.contains("Queues.xml")){
+                            if(line.contains("com.tibco.plugin.jms")){
                                 tibcoServicesFiles.add(fileListed.getCanonicalPath());
                             }
                         }
