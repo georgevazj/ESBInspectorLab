@@ -9,19 +9,9 @@ public class TibcoOutputActivity {
     private String service;
     private String domain;
     private String uuaa;
-    private String name;
     private String type;
-    private String activityName;
     private String destination;
 
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getType() {
         return type;
@@ -71,11 +61,4 @@ public class TibcoOutputActivity {
         this.uuaa = uuaa;
     }
 
-    public String getActivityName() {
-        return activityName;
-    }
-
-    public void setActivityName(String activityName) {
-        this.activityName = activityName;
-    }
 }

@@ -32,7 +32,9 @@ public class TibcoOutputProcessor implements ItemProcessor<ProcessDefinitionMode
         TibcoOutput tibcoOutput = new TibcoOutput();
         String applicationName = processDefinitionModel.getApplicationName();
         String[] applicationNameSplit = applicationName.split("_");
-        String serviceName = processDefinitionModel.getName();
+        String serviceNameFromModel = processDefinitionModel.getName();
+
+        String serviceName = "";
         String domain = "";
         String uuaa = "";
 
@@ -76,52 +78,120 @@ public class TibcoOutputProcessor implements ItemProcessor<ProcessDefinitionMode
             uuaa = "Unknown";
         }
 
+        if (serviceName.contains("BackEnd")){
+            logger.info("Application > " + applicationName +
+                    "\n\t\t Service > " + serviceName);
+        }
+
+
         String applicationPath = tibcoDeploymentPath + domain + pathSeparator + "datafiles" + pathSeparator + applicationName + "_root" + pathSeparator;
+        //OBTENCION DEL NOMBRE DEL SERVICIO
+        String[] serviceNameSplit = serviceNameFromModel.split("/");
+        for (int i = 0; i < serviceNameSplit.length; i++){
+            if (serviceNameSplit[i].equals("Business") && serviceNameSplit[i+1].startsWith("S_")){
+                serviceName = serviceNameSplit[i+1];
+            }
+        }
 
+        List<StarterModel> starterModels = processDefinitionModel.getStarterModels();
+        List<ActivityModel> activityModels = processDefinitionModel.getActivityModels();
+        List<GroupModel> groupModels = processDefinitionModel.getGroupModels();
 
-        //OBTENCION DE LOS NOMBRES DE COLA
         try{
-            //STARTERS
-            List<StarterModel> starterModels = processDefinitionModel.getStarterModels();
-            for (StarterModel starterModel:starterModels){
-                if (starterModel.getType().contains("jms")){
-                    TibcoOutputActivity tibcoOutputActivityStarter = new TibcoOutputActivity();
+            //SERVICIOS IA Y SS (FUNCIONAN DE LA MISMA MANERA)
+            if (serviceName.contains("_SS_") || serviceName.contains("_IA_")|| serviceNameFromModel.contains("BackEnd")){
+                //STARTER > CONSUMIDOR
+                for (StarterModel starterModel:starterModels){
 
-                    tibcoOutputActivityStarter.setApplication(applicationName);
-                    tibcoOutputActivityStarter.setDomain(domain);
-                    tibcoOutputActivityStarter.setService(serviceName);
-                    tibcoOutputActivityStarter.setUuaa(uuaa);
-                    tibcoOutputActivityStarter.setType(starterModel.getType());
-                    tibcoOutputActivityStarter.setActivityName(starterModel.getName());
+                    if(starterModel.getType().contains("jms")){
+                        List<StarterConfigModel> starterConfigModels = starterModel.getStarterConfigModels();
+                        for (StarterConfigModel starterConfigModel:starterConfigModels){
+                            List<SessionAttributesModel> sessionAttributesModels = starterConfigModel.getSessionAttributesModels();
+                            for (SessionAttributesModel sessionAttributesModel:sessionAttributesModels){
+                                String destination = getQueueName(applicationPath,sessionAttributesModel.getDestination());
 
-                    List<StarterConfigModel> starterConfigModels = starterModel.getStarterConfigModels();
-                    for (StarterConfigModel starterConfigModel:starterConfigModels){
-                        List<SessionAttributesModel> sessionAttributesModels = starterConfigModel.getSessionAttributesModels();
-                        for (SessionAttributesModel sessionAttributesModel:sessionAttributesModels){
-                            String destinationConfig = sessionAttributesModel.getDestination();
-                            String destination = getQueueName(applicationPath,destinationConfig);
-                            tibcoOutputActivityStarter.setDestination(destination);
+                                TibcoOutputActivity tibcoOutputActivity = new TibcoOutputActivity();
+                                tibcoOutputActivity.setApplication(applicationName);
+                                tibcoOutputActivity.setDestination(destination);
+                                tibcoOutputActivity.setService(serviceName);
+                                tibcoOutputActivity.setType("Consumer");
+                                tibcoOutputActivity.setDomain(domain);
+                                tibcoOutputActivity.setUuaa(uuaa);
+
+                                tibcoOutput.getTibcoOutputActivities().add(tibcoOutputActivity);
+
+
+                            }
                         }
                     }
-                    tibcoOutput.getTibcoOutputActivities().add(tibcoOutputActivityStarter);
                 }
-            }
+                //ACTIVIDAD Y ACTIVIDADES EN BUCLE (GROUP) > PRODUCTOR
+                for (ActivityModel activityModel:activityModels){
+                    if (activityModel.getType().contains("jms")){
+                        List<ActivityConfigModel> activityConfigModels = activityModel.getActivityConfigModels();
+                        for (ActivityConfigModel activityConfigModel:activityConfigModels){
+                            List<SessionAttributesModel> sessionAttributesModels = activityConfigModel.getSessionAttributesModels();
 
-            //ACTIVITIES
-            List<ActivityModel> activityModels = processDefinitionModel.getActivityModels();
-            for (ActivityModel activityModel:activityModels){
-                if (activityModel.getType().contains("jms")){
+                            int cont = 0;
+                            for (SessionAttributesModel sessionAttributesModel:sessionAttributesModels){
+                                if (!sessionAttributesModel.getDestination().isEmpty()){
+                                    String destination = getQueueName(applicationPath,sessionAttributesModel.getDestination());
 
+                                    cont = cont + 1;
+
+                                    TibcoOutputActivity tibcoOutputActivity = new TibcoOutputActivity();
+                                    tibcoOutputActivity.setApplication(applicationName);
+                                    tibcoOutputActivity.setDestination(destination);
+                                    tibcoOutputActivity.setService(serviceName);
+                                    tibcoOutputActivity.setType("Producer");
+                                    tibcoOutputActivity.setDomain(domain);
+                                    tibcoOutputActivity.setUuaa(uuaa);
+
+                                    tibcoOutput.getTibcoOutputActivities().add(tibcoOutputActivity);
+
+                                }
+                            }
+                        }
+                    }
                 }
+                for (GroupModel groupModel:groupModels){
+                    List<ActivityModel> groupActivityModels = groupModel.getActivityModels();
+                    for (ActivityModel activityModel:groupActivityModels){
+                        if (activityModel.getType().contains("jms")){
+                            List<ActivityConfigModel> activityConfigModels = activityModel.getActivityConfigModels();
+                            for (ActivityConfigModel activityConfigModel:activityConfigModels){
+                                List<SessionAttributesModel> sessionAttributesModels = activityConfigModel.getSessionAttributesModels();
+
+                                int cont = 0;
+
+                                for (SessionAttributesModel sessionAttributesModel:sessionAttributesModels){
+                                    if (!sessionAttributesModel.getDestination().isEmpty()){
+                                        String destination = getQueueName(applicationPath,sessionAttributesModel.getDestination());
+
+                                        cont = cont + 1;
+
+                                        TibcoOutputActivity tibcoOutputActivity = new TibcoOutputActivity();
+                                        tibcoOutputActivity.setApplication(applicationName);
+                                        tibcoOutputActivity.setDestination(destination);
+                                        tibcoOutputActivity.setService(serviceName);
+                                        tibcoOutputActivity.setType("Producer");
+                                        tibcoOutputActivity.setDomain(domain);
+                                        tibcoOutputActivity.setUuaa(uuaa);
+
+                                        tibcoOutput.getTibcoOutputActivities().add(tibcoOutputActivity);
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
             }
-
-
+        }
+        catch (NullPointerException ex){
 
         }
-        catch (Exception ex){
-
-        }
-
 
         return tibcoOutput;
     }

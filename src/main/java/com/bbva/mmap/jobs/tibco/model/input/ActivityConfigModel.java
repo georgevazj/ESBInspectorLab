@@ -17,7 +17,6 @@ public class ActivityConfigModel {
     private String connectionReference;
     //private List<ConfigurableHeadersModel> configurableHeadersModels;
     private List<SessionAttributesModel> sessionAttributesModels = new ArrayList<SessionAttributesModel>();
-
     private EMSResourceModel emsResourceModel;
 
     public String getProcessName() {
