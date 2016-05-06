@@ -85,8 +85,13 @@ public class TibcoOutputProcessor implements ItemProcessor<ProcessDefinitionMode
             uuaa = "Unknown";
         }
 
+        //RUTAS DE INTERES PARA LAS APLICACIONES
 
+        //Ruta completa de despliegue de la aplicacion
         String applicationPath = tibcoDeploymentPath + domain + pathSeparator + "datafiles" + pathSeparator + applicationName + "_root" + pathSeparator;
+        //Ruta de los ficheros de configuracion para Queues.xml
+        File defaultVarsFile = new File(applicationPath + pathSeparator + "defaultVars" + pathSeparator + "CFG" + pathSeparator + "ARCHITECTURE" + pathSeparator + "ENVIRONMENT" + pathSeparator + "defaultVars.substvar");
+
         //OBTENCION DEL NOMBRE DEL SERVICIO
         String[] serviceNameSplit = serviceNameFromModel.split("/");
         for (int i = 0; i < serviceNameSplit.length; i++){
@@ -306,6 +311,21 @@ public class TibcoOutputProcessor implements ItemProcessor<ProcessDefinitionMode
                     }
                 }
             } //FINAL DE SERVICIOS SS, IA Y IP
+
+            //OBTENCION DE SERVICIOS CA
+            else if (serviceName.contains("_CA_")){
+                if (defaultVarsFile.exists() && serviceName.contains("KYRS") && serviceNameFromModel.contains("Starter")){
+                    List<ActivityModel> activityModels = processDefinitionModel.getActivityModels();
+
+                    for (StarterModel starterModel:starterModels){
+                        logger.info("Starter type in " + serviceNameFromModel + " > " + starterModel.getType());
+                    }
+
+                    for (ActivityModel activityModel:activityModels){
+                        logger.info("Activity type in " + serviceNameFromModel + " > " + activityModel.getType());
+                    }
+                }
+            }
         }
         catch (NullPointerException ex){
 
@@ -331,7 +351,9 @@ public class TibcoOutputProcessor implements ItemProcessor<ProcessDefinitionMode
                 destinationPath = destinationPath.replace(",","");
                 destinationPath = destinationPath.replace("\"","");
 
-                String[] destinationPathList = destinationPath.split(".");
+                String separator = Pattern.quote(".");
+
+                String[] destinationPathList = destinationPath.split(separator);
 
                 for (String cfgPath:destinationPathList){
                     String varValue = fileSeeker.seekJMSConf(applicationPath,cfgPath);

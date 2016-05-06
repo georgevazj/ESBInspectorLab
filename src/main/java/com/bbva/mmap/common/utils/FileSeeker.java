@@ -130,7 +130,7 @@ public class FileSeeker {
         }
         if (varValue == ""||varValue == null){
             varValue = "Unknown";
-            logger.warn("No ha sido posible obtener el valor de la variable para " + applicationConfPath + ".");
+            logger.warn("No ha sido posible obtener la conexion a EMS para " + applicationConfPath + ".");
         }
         return varValue;
     }
