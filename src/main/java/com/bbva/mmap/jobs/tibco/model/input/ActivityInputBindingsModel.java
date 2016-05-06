@@ -11,6 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class ActivityInputBindingsModel {
 
     private ActivityInputModel activityInputModel;
+    private ActivityInputBindingsRootElement activityInputBindingsRootElement;
 
     @XmlElement(name = "ActivityInput")
     public ActivityInputModel getActivityInputModel() {
@@ -19,5 +20,14 @@ public class ActivityInputBindingsModel {
 
     public void setActivityInputModel(ActivityInputModel activityInputModel) {
         this.activityInputModel = activityInputModel;
+    }
+
+    @XmlElement(name = "Root")
+    public ActivityInputBindingsRootElement getActivityInputBindingsRootElement() {
+        return activityInputBindingsRootElement;
+    }
+
+    public void setActivityInputBindingsRootElement(ActivityInputBindingsRootElement activityInputBindingsRootElement) {
+        this.activityInputBindingsRootElement = activityInputBindingsRootElement;
     }
 }

@@ -21,6 +21,7 @@ public class TibcoOutputActivity {
         this.type = type;
     }
 
+
     public String getDestination() {
         return destination;
     }

@@ -87,6 +87,7 @@ public class TibcoListener implements JobExecutionListener {
                     newText = newText.replace("xsl:", "");
                     newText = newText.replace("pfx:2", "");
                     newText = newText.replace("pfx:", "");
+                    newText = newText.replace("eaifw:","");
                     FileWriter fileWriter = new FileWriter(processFile);
                     fileWriter.write(newText);
                     fileWriter.close();

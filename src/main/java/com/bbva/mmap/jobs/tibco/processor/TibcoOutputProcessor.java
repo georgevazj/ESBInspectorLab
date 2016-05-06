@@ -1,6 +1,8 @@
 package com.bbva.mmap.jobs.tibco.processor;
 
 import com.bbva.mmap.common.utils.FileSeeker;
+import com.bbva.mmap.jobs.tibco.model.configs.DefaultVarsModel;
+import com.bbva.mmap.jobs.tibco.model.configs.GlobalVariableModel;
 import com.bbva.mmap.jobs.tibco.model.input.*;
 import com.bbva.mmap.jobs.tibco.model.output.TibcoOutput;
 import com.bbva.mmap.jobs.tibco.model.output.TibcoOutputActivity;
@@ -11,8 +13,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.print.attribute.standard.Destination;
 import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.io.StringReader;
@@ -318,15 +320,81 @@ public class TibcoOutputProcessor implements ItemProcessor<ProcessDefinitionMode
                     List<ActivityModel> activityModels = processDefinitionModel.getActivityModels();
 
                     for (StarterModel starterModel:starterModels){
-                        logger.info("Starter type in " + serviceNameFromModel + " > " + starterModel.getType());
+                        List<StarterConfigModel> starterConfigModels = starterModel.getStarterConfigModels();
+                        for (StarterConfigModel starterConfigModel : starterConfigModels) {
+                            List<SessionAttributesModel> sessionAttributesModels = starterConfigModel.getSessionAttributesModels();
+                            for (SessionAttributesModel sessionAttributesModel : sessionAttributesModels) {
+                                String destination = getQueueName(applicationPath, sessionAttributesModel.getDestination());
+
+                                TibcoOutputActivity tibcoOutputActivity = new TibcoOutputActivity();
+                                tibcoOutputActivity.setApplication(applicationName);
+                                tibcoOutputActivity.setDestination(destination);
+                                tibcoOutputActivity.setService(serviceName);
+                                tibcoOutputActivity.setType("Consumer");
+                                tibcoOutputActivity.setDomain(domain);
+                                tibcoOutputActivity.setUuaa(uuaa);
+
+                                tibcoOutput.getTibcoOutputActivities().add(tibcoOutputActivity);
+                            }
+                        }
                     }
 
                     for (ActivityModel activityModel:activityModels){
-                        logger.info("Activity type in " + serviceNameFromModel + " > " + activityModel.getType());
+                        if (activityModel.getType().contains("CallProcessActivity")){
+
+                            //Servicio con el que comunica enviando mensajes JMS
+                            String targetServiceId = activityModel.getActivityInputBindingsModel().getActivityInputBindingsRootElement().getActivityInputBindingsRootAdapterChannel().getTargetServiceModelIDModel().getDestinationValueOfModel().getSelect();
+
+                            String queuesFilePath = "";
+                            String queuesEnv = "";
+                            //Se lee el contenido del fichero de configuracion y se parsea a su modelo
+                            try{
+                                JAXBContext jaxbContext = JAXBContext.newInstance(DefaultVarsModel.class);
+                                Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+
+                                String defaultVarsFileContent = FileUtils.readFileToString(defaultVarsFile);
+                                defaultVarsFileContent = defaultVarsFileContent.replace(":xsi","");
+                                defaultVarsFileContent = defaultVarsFileContent.replace("xmlns = ","");
+                                defaultVarsFileContent = defaultVarsFileContent.replace("\"http://www.w3.org/2001/XMLSchema-instance\"","");
+                                defaultVarsFileContent = defaultVarsFileContent.replace("\"http://www.tibco.com/xmlns/repo/types/2002\"","");
+                                StringReader stringReader = new StringReader(defaultVarsFileContent);
+
+                                DefaultVarsModel defaultVarsModel = (DefaultVarsModel) unmarshaller.unmarshal(stringReader);
+                                List<GlobalVariableModel> globalVariableModels = defaultVarsModel.getGlobalVariablesModel().getGlobalVariableModels();
+
+
+                                for (GlobalVariableModel globalVariableModel:globalVariableModels){
+                                    if (globalVariableModel.getName().equals("CFG_ENVIRONMENT_PREFIX")){
+                                        queuesEnv = globalVariableModel.getValue();
+                                    }
+                                    else if (globalVariableModel.getName().equals("CFG_PATH")){
+                                        queuesFilePath = globalVariableModel.getValue();
+                                    }
+
+                                }
+                                //File queuesFile = new File(queuesFilePath + "Queues.xml");
+
+
+                                /// ONLY FOR TESTING!!!!!!
+                                String projectPath = System.getProperty("user.dir");
+                                File queuesFile = new File(projectPath + pathSeparator + "src" + pathSeparator + "main" + pathSeparator + "resources" + pathSeparator + "de" + pathSeparator + "kyrs" + pathSeparator + "online" + pathSeparator + "multipais" + pathSeparator + "multicanal" + pathSeparator + "cfg" + pathSeparator + "entorno" + pathSeparator + "Queues.xml");
+                                ////////////////////////////////
+
+                                if (queuesFile.exists()){
+
+                                }
+                            }
+                            catch (JAXBException ex){
+                                logger.error(ex.toString());
+                            }
+
+                        }
                     }
                 }
             }
         }
+
+        //LO ERRORES NULLPOINTER SE OMITEN DADO QUE SON PRODUCIDOS CUANDO UN PROCESO NO TIENE STARTER, ACTIVITIES, ETC... NO SON FALLOS A TENER EN CUENTA EN ESTE CASO
         catch (NullPointerException ex){
 
         }
