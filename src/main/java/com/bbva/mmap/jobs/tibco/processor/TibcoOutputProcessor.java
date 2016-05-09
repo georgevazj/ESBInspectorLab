@@ -14,6 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
+import sun.reflect.generics.reflectiveObjects.LazyReflectiveObjectGenerator;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -317,8 +318,8 @@ public class TibcoOutputProcessor implements ItemProcessor<ProcessDefinitionMode
             } //FINAL DE SERVICIOS SS, IA Y IP
 
             //OBTENCION DE SERVICIOS CA
-            else if (serviceName.contains("_CA_")){
-                if (defaultVarsFile.exists() && serviceName.contains("KYRS") && serviceNameFromModel.contains("Starter")){
+            else if (serviceName.contains("_CA_") || serviceName.contains("_FT_")){
+                if (defaultVarsFile.exists() &&  serviceNameFromModel.contains("Starter")){
                     List<ActivityModel> activityModels = processDefinitionModel.getActivityModels();
 
                     for (StarterModel starterModel:starterModels){
@@ -345,11 +346,18 @@ public class TibcoOutputProcessor implements ItemProcessor<ProcessDefinitionMode
                         if (activityModel.getType().contains("CallProcessActivity")){
 
                             //Servicio con el que comunica enviando mensajes JMS
-                            String targetServiceId = activityModel.getActivityInputBindingsModel().getActivityInputBindingsRootElement().getActivityInputBindingsRootAdapterChannel().getTargetServiceModelIDModel().getDestinationValueOfModel().getSelect();
+                            String targetServiceId = "";
+                            if (serviceName.contains("_CA_")){
+                                targetServiceId = activityModel.getActivityInputBindingsModel().getActivityInputBindingsRootElement().getActivityInputBindingsRootAdapterChannel().getTargetServiceModelIDModel().getDestinationValueOfModel().getSelect();
+                            }
+                            else if(serviceName.contains("_FT_")){
+                                logger.info(applicationName + " SERVICE FT >>>> " + serviceName);
+                                targetServiceId = activityModel.getActivityInputBindingsModel().getActivityInputBindingsInputElement().getActivityInputBindingsFilterAdapterElement().getTargetServiceModelIDModel().getDestinationValueOfModel().getSelect();
+                            }
 
                             String queuesFilePath = "";
                             String queuesEnv = "";
-                            //Se lee el contenido del fichero de configuracion y se parsea a su modelo
+                            //SE LEE EL CONTENIDO DEL FICHERO DE CONFIGURACION PARA OBTENER LA RUTA DEL QUEUES XML Y EL ENTORNO
                             try{
                                 JAXBContext jaxbContext = JAXBContext.newInstance(DefaultVarsModel.class);
                                 Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
@@ -359,6 +367,7 @@ public class TibcoOutputProcessor implements ItemProcessor<ProcessDefinitionMode
                                 defaultVarsFileContent = defaultVarsFileContent.replace("xmlns = ","");
                                 defaultVarsFileContent = defaultVarsFileContent.replace("\"http://www.w3.org/2001/XMLSchema-instance\"","");
                                 defaultVarsFileContent = defaultVarsFileContent.replace("\"http://www.tibco.com/xmlns/repo/types/2002\"","");
+
                                 StringReader stringReader = new StringReader(defaultVarsFileContent);
 
                                 DefaultVarsModel defaultVarsModel = (DefaultVarsModel) unmarshaller.unmarshal(stringReader);
@@ -375,19 +384,40 @@ public class TibcoOutputProcessor implements ItemProcessor<ProcessDefinitionMode
 
                                 }
                                 String projectPath = System.getProperty("user.dir");
+                                //ONLY FOR TESTING
+                                //File queuesFile = new File(queuesFilePath + "Queues.xml");
                                 File queuesFile = new File(projectPath + pathSeparator + "src" + pathSeparator + "main" + pathSeparator + "resources" + pathSeparator + queuesFilePath + "Queues.xml");
-
-
-                                /// ONLY FOR TESTING!!!!!!
-                                //String projectPath = System.getProperty("user.dir");
-                                //File queuesFile = new File(projectPath + pathSeparator + "src" + pathSeparator + "main" + pathSeparator + "resources" + pathSeparator + "de" + pathSeparator + "kyrs" + pathSeparator + "online" + pathSeparator + "multipais" + pathSeparator + "multicanal" + pathSeparator + "cfg" + pathSeparator + "entorno" + pathSeparator + "Queues.xml");
-                                ////////////////////////////////
-
                                 if (queuesFile.exists()){
-                                    if (queuesFile.getCanonicalPath().contains("kygb")){
+                                    if (targetServiceId.contains("globalVariables")){
                                         String[] targetServiceIdSplit = targetServiceId.split("/");
                                         targetServiceId = targetServiceIdSplit[targetServiceIdSplit.length-1];
                                     }
+
+                                    //ES NECESARIO BUSCAR EL CONTENIDO DE TARGETSERVICEID EN EL FICHERO DE CONFIGURACION EN COMMON/GLB/SERVICEIDS
+                                    File serviceIdConfFile = new File(applicationPath + pathSeparator + "defaultVars" + pathSeparator + "COMMON" + pathSeparator + "GLB" + pathSeparator + "ServiceIDs" + pathSeparator + "defaultVars.substvar");
+                                    if (serviceIdConfFile.exists()){
+                                        JAXBContext jaxbContextServiceId = JAXBContext.newInstance(DefaultVarsModel.class);
+                                        Unmarshaller unmarshallerServiceId = jaxbContextServiceId.createUnmarshaller();
+
+                                        String serviceIdFileContent = FileUtils.readFileToString(serviceIdConfFile);
+                                        serviceIdFileContent = serviceIdFileContent.replace(":xsi","");
+                                        serviceIdFileContent = serviceIdFileContent.replace("xmlns = ","");
+                                        serviceIdFileContent = serviceIdFileContent.replace("\"http://www.w3.org/2001/XMLSchema-instance\"","");
+                                        serviceIdFileContent = serviceIdFileContent.replace("\"http://www.tibco.com/xmlns/repo/types/2002\"","");
+
+                                        StringReader stringReaderServiceId = new StringReader(serviceIdFileContent);
+
+                                        DefaultVarsModel defaultVarsModelServiceId = (DefaultVarsModel) unmarshallerServiceId.unmarshal(stringReaderServiceId);
+                                        List<GlobalVariableModel> globalVariableModelsServiceId = defaultVarsModelServiceId.getGlobalVariablesModel().getGlobalVariableModels();
+
+                                        for (GlobalVariableModel globalVariableModel:globalVariableModelsServiceId){
+                                            if (globalVariableModel.getName().equals(targetServiceId)){
+                                                targetServiceId = globalVariableModel.getValue();
+                                            }
+                                        }
+                                    }
+
+                                    //SE BUSCA EL SERVICIO DESTINO EN EL QUEUES.XML
                                     List<String> queuesFileContent = FileUtils.readLines(queuesFile);
                                     for (String line:queuesFileContent){
                                         if(line.contains(targetServiceId)){
@@ -397,6 +427,9 @@ public class TibcoOutputProcessor implements ItemProcessor<ProcessDefinitionMode
 
                                             if (destination.contains("%ENV%")){
                                                 destination = destination.replace("%ENV%",queuesEnv);
+                                            }
+                                            if(destination.contains(".." + queuesEnv + "..")){
+                                                destination = destination.replace(".." + queuesEnv + "..","." + queuesEnv + ".");
                                             }
 
                                             TibcoOutputActivity tibcoOutputActivity = new TibcoOutputActivity();
@@ -427,7 +460,6 @@ public class TibcoOutputProcessor implements ItemProcessor<ProcessDefinitionMode
 
         //LO ERRORES NULLPOINTER SE OMITEN DADO QUE SON PRODUCIDOS CUANDO UN PROCESO NO TIENE STARTER, ACTIVITIES, ETC... NO SON FALLOS A TENER EN CUENTA EN ESTE CASO
         catch (NullPointerException ex){
-
         }
 
         return tibcoOutput;

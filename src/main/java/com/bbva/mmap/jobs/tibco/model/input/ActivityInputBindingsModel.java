@@ -12,6 +12,8 @@ public class ActivityInputBindingsModel {
 
     private ActivityInputModel activityInputModel;
     private ActivityInputBindingsRootElement activityInputBindingsRootElement;
+    private ActivityInputBindingsInputElement activityInputBindingsInputElement;
+
 
     @XmlElement(name = "ActivityInput")
     public ActivityInputModel getActivityInputModel() {
@@ -29,5 +31,14 @@ public class ActivityInputBindingsModel {
 
     public void setActivityInputBindingsRootElement(ActivityInputBindingsRootElement activityInputBindingsRootElement) {
         this.activityInputBindingsRootElement = activityInputBindingsRootElement;
+    }
+
+    @XmlElement(name = "Input")
+    public ActivityInputBindingsInputElement getActivityInputBindingsInputElement() {
+        return activityInputBindingsInputElement;
+    }
+
+    public void setActivityInputBindingsInputElement(ActivityInputBindingsInputElement activityInputBindingsInputElement) {
+        this.activityInputBindingsInputElement = activityInputBindingsInputElement;
     }
 }
