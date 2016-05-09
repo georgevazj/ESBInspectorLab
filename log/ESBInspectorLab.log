@@ -25430,3 +25430,896 @@ else
 2016-05-09 13:12:02.781 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2016-05-09 13:12:02.781 INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
 2016-05-09 13:12:02.782 INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+2016-05-09 13:18:24.650 INFO  com.bbva.mmap.Launcher - Starting Launcher on DESKTOP-UOKULT9 with PID 9196 (D:\Workspace\Java\ESBInspectorLab\target\classes started by jorge in D:\Workspace\Java\ESBInspectorLab)
+2016-05-09 13:18:24.655 INFO  com.bbva.mmap.Launcher - No active profile set, falling back to default profiles: default
+2016-05-09 13:18:24.880 INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@16bd9ed: startup date [Mon May 09 13:18:24 CEST 2016]; root of context hierarchy
+2016-05-09 13:18:27.119 WARN  o.s.c.a.ConfigurationClassEnhancer - @Bean method ScopeConfiguration.stepScope is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2016-05-09 13:18:27.148 WARN  o.s.c.a.ConfigurationClassEnhancer - @Bean method ScopeConfiguration.jobScope is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2016-05-09 13:18:28.155 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2016-05-09 13:18:28.193 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2016-05-09 13:18:28.302 INFO  org.hibernate.Version - HHH000412: Hibernate Core {4.3.11.Final}
+2016-05-09 13:18:28.303 INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2016-05-09 13:18:28.305 INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2016-05-09 13:18:28.617 INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2016-05-09 13:18:28.690 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-05-09 13:18:28.753 INFO  o.h.h.i.a.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+2016-05-09 13:18:29.081 INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+2016-05-09 13:18:29.084 INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+2016-05-09 13:18:29.463 INFO  o.s.oxm.jaxb.Jaxb2Marshaller - Creating JAXBContext with classes to be bound [class com.bbva.mmap.jobs.tibco.model.input.ProcessDefinitionModel]
+2016-05-09 13:18:29.755 INFO  o.s.oxm.jaxb.Jaxb2Marshaller - Creating JAXBContext with classes to be bound [class com.bbva.mmap.jobs.tibco.model.output.TibcoOutput]
+2016-05-09 13:18:30.227 WARN  o.s.b.a.batch.BasicBatchConfigurer - JPA does not support custom isolation levels, so locks may not be taken when launching Jobs
+2016-05-09 13:18:30.233 INFO  o.s.b.c.r.s.JobRepositoryFactoryBean - No database type set, using meta data indicating: HSQL
+2016-05-09 13:18:30.384 INFO  o.s.b.c.l.support.SimpleJobLauncher - No TaskExecutor has been set, defaulting to synchronous executor.
+2016-05-09 13:18:30.422 INFO  o.s.jdbc.datasource.init.ScriptUtils - Executing SQL script from class path resource [org/springframework/batch/core/schema-hsqldb.sql]
+2016-05-09 13:18:30.434 INFO  o.s.jdbc.datasource.init.ScriptUtils - Executed SQL script from class path resource [org/springframework/batch/core/schema-hsqldb.sql] in 12 ms.
+2016-05-09 13:18:30.735 INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2016-05-09 13:18:30.794 INFO  o.s.b.a.b.JobLauncherCommandLineRunner - Running default command line with: [--spring.output.ansi.enabled=always]
+2016-05-09 13:18:30.933 INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [FlowJob: [name=tibcoServicesJob]] launched with the following parameters: [{-spring.output.ansi.enabled=always, run.id=1}]
+2016-05-09 13:18:30.943 INFO  c.b.m.j.tibco.listener.TibcoListener - Copying files to D:\Workspace\Pool\...
+2016-05-09 13:18:51.218 INFO  c.b.m.j.tibco.listener.TibcoListener - Completed.
+2016-05-09 13:18:51.218 INFO  c.b.m.j.tibco.listener.TibcoListener - Modifying .process files...
+2016-05-09 13:19:03.640 INFO  c.b.m.j.tibco.listener.TibcoListener - Completed.
+2016-05-09 13:19:03.659 INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [step]
+2016-05-09 13:19:05.171 INFO  c.b.m.j.t.p.TibcoOutputProcessor - CIB_EYFW_Filter SERVICE FT >>>> S_EYFW_FT_FILTALL
+2016-05-09 13:19:05.193 INFO  c.b.m.j.t.p.TibcoOutputProcessor - CIB_EYFW_Filter SERVICE FT >>>> S_EYFW_FT_FILTALL
+2016-05-09 13:19:05.211 INFO  c.b.m.j.t.p.TibcoOutputProcessor - CIB_EYFW_Filter SERVICE FT >>>> S_EYFW_FT_FILTNOTH
+2016-05-09 13:19:05.232 INFO  c.b.m.j.t.p.TibcoOutputProcessor - CIB_EYFW_Filter SERVICE FT >>>> S_EYFW_FT_FILTNOTH
+2016-05-09 13:19:26.536 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_OPERACIONES SERVICE FT >>>> S_ECFO_FT_CR_TRADES
+2016-05-09 13:19:26.552 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_OPERACIONES SERVICE FT >>>> S_ECFO_FT_CR_TRADES
+2016-05-09 13:19:26.557 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_OPERACIONES SERVICE FT >>>> S_ECFO_FT_CR_TRADES
+2016-05-09 13:19:26.573 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_OPERACIONES SERVICE FT >>>> S_ECFO_FT_CR_TRADES
+2016-05-09 13:19:27.381 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_EFON_BW_IA_FONETIC_root\defaultVars\$ARC_FindQueue\defaultVars.substvar.
+2016-05-09 13:19:34.652 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KLMX_MUREX_BW SERVICE FT >>>> S_KLMX_FT_MX_FIXING
+2016-05-09 13:19:34.658 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KLMX_MUREX_BW SERVICE FT >>>> S_KLMX_FT_MX_FIXING
+2016-05-09 13:19:34.668 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KLMX_MUREX_BW SERVICE FT >>>> S_KLMX_FT_MX_FIXING
+2016-05-09 13:19:34.674 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KLMX_MUREX_BW SERVICE FT >>>> S_KLMX_FT_MX_FIXING
+2016-05-09 13:19:34.685 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KLMX_MUREX_BW SERVICE FT >>>> S_KLMX_FT_MX_FLOWS
+2016-05-09 13:19:34.691 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KLMX_MUREX_BW SERVICE FT >>>> S_KLMX_FT_MX_FLOWS
+2016-05-09 13:19:34.702 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KLMX_MUREX_BW SERVICE FT >>>> S_KLMX_FT_MX_FLOWS
+2016-05-09 13:19:34.707 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KLMX_MUREX_BW SERVICE FT >>>> S_KLMX_FT_MX_FLOWS
+2016-05-09 13:19:34.717 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KLMX_MUREX_BW SERVICE FT >>>> S_KLMX_FT_MX_TRADES
+2016-05-09 13:19:34.722 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KLMX_MUREX_BW SERVICE FT >>>> S_KLMX_FT_MX_TRADES
+2016-05-09 13:19:34.732 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KLMX_MUREX_BW SERVICE FT >>>> S_KLMX_FT_MX_TRADES
+2016-05-09 13:19:34.738 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KLMX_MUREX_BW SERVICE FT >>>> S_KLMX_FT_MX_TRADES
+2016-05-09 13:19:34.851 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KLTB_CALYPSO_CR_BW_OPERACIONES SERVICE FT >>>> S_KLTB_FT_CR_TRADES
+2016-05-09 13:19:34.857 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KLTB_CALYPSO_CR_BW_OPERACIONES SERVICE FT >>>> S_KLTB_FT_CR_TRADES
+2016-05-09 13:19:35.018 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KLTB_CALYPSO_CR_BW_OPERACIONES_root\defaultVars\GLB\CALYPSO_CR\JMS\defaultVars.substvar.
+2016-05-09 13:19:35.020 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%GLB/CALYPSO_CR/JMS/CIB_Prefix%.%%CFG/ARCHITECTURE/ENVIRONMENT/CFG_ENVIRONMENT_PREFIX%%.%%GLB/CALYPSO_CR/JMS/CR_PREDEAL_ACK%%
+2016-05-09 13:19:35.189 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KLTB_CALYPSO_CR_BW_OPERACIONES_root\defaultVars\GLB\CALYPSO_CR\JMS\defaultVars.substvar.
+2016-05-09 13:19:35.191 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%GLB/CALYPSO_CR/JMS/CIB_Prefix%.%%CFG/ARCHITECTURE/ENVIRONMENT/CFG_ENVIRONMENT_PREFIX%%.%%GLB/CALYPSO_CR/JMS/CR_PREDEAL_ACK%%
+2016-05-09 13:19:35.441 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KQNT_BW_ST SERVICE FT >>>> S_KQNT_FT_FILTFIXING
+2016-05-09 13:19:35.448 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KQNT_BW_ST SERVICE FT >>>> S_KQNT_FT_FILTFIXING
+2016-05-09 13:19:35.456 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KQNT_BW_ST SERVICE FT >>>> S_KQNT_FT_FILTFLOWS
+2016-05-09 13:19:35.461 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KQNT_BW_ST SERVICE FT >>>> S_KQNT_FT_FILTFLOWS
+2016-05-09 13:19:35.470 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KQNT_BW_ST SERVICE FT >>>> S_KQNT_FT_FILTHEADER
+2016-05-09 13:19:35.475 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KQNT_BW_ST SERVICE FT >>>> S_KQNT_FT_FILTHEADER
+2016-05-09 13:19:35.487 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KQNT_BW_ST SERVICE FT >>>> S_KQNT_FT_FILTFIXING
+2016-05-09 13:19:35.495 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KQNT_BW_ST SERVICE FT >>>> S_KQNT_FT_FILTFIXING
+2016-05-09 13:19:35.506 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KQNT_BW_ST SERVICE FT >>>> S_KQNT_FT_FILTFIXING
+2016-05-09 13:19:35.510 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KQNT_BW_ST SERVICE FT >>>> S_KQNT_FT_FILTFIXING
+2016-05-09 13:19:35.519 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KQNT_BW_ST SERVICE FT >>>> S_KQNT_FT_FILTFLOWS
+2016-05-09 13:19:35.524 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KQNT_BW_ST SERVICE FT >>>> S_KQNT_FT_FILTFLOWS
+2016-05-09 13:19:35.534 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KQNT_BW_ST SERVICE FT >>>> S_KQNT_FT_FILTFLOWS
+2016-05-09 13:19:35.541 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KQNT_BW_ST SERVICE FT >>>> S_KQNT_FT_FILTFLOWS
+2016-05-09 13:19:35.551 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KQNT_BW_ST SERVICE FT >>>> S_KQNT_FT_FILTHEADER
+2016-05-09 13:19:35.557 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KQNT_BW_ST SERVICE FT >>>> S_KQNT_FT_FILTHEADER
+2016-05-09 13:19:35.570 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KQNT_BW_ST SERVICE FT >>>> S_KQNT_FT_FILTHEADER
+2016-05-09 13:19:35.579 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KQNT_BW_ST SERVICE FT >>>> S_KQNT_FT_FILTHEADER
+2016-05-09 13:19:42.327 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYFK_CALYPSO_BW_LIQUIDACIONES_root\defaultVars\
+\GLB\CALYPSO\JMS\defaultVars.substvar.
+2016-05-09 13:19:42.490 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYFK_CALYPSO_BW_LIQUIDACIONES_root\defaultVars\
+\GLB\CALYPSO\JMS\defaultVars.substvar.
+2016-05-09 13:19:42.834 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYFK_CALYPSO_BW_LIQUIDACIONES_root\defaultVars\
+\GLB\CALYPSO\JMS\defaultVars.substvar.
+2016-05-09 13:19:42.874 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYFK_CALYPSO_BW_LIQUIDACIONES_root\defaultVars\
+\GLB\CALYPSO\JMS\defaultVars.substvar.
+2016-05-09 13:19:46.325 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%GLB/AMIGA/JMS/env_Backend_Queue_IN%%
+2016-05-09 13:19:52.451 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 13:19:52.483 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 13:19:52.518 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 13:19:52.546 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 13:19:52.579 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 13:19:52.614 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 13:19:52.646 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 13:19:52.683 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 13:19:52.723 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 13:19:52.766 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 13:19:52.799 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 13:19:52.830 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 13:19:52.859 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 13:19:52.891 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 13:19:53.307 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.317 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.324 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.335 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.343 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.354 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.362 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.371 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.381 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.390 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.400 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.413 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.420 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.430 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.439 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.450 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.459 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.467 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.475 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.487 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.497 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.508 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.518 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.533 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.544 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.558 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.571 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.588 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.600 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.614 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.623 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.636 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.647 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.656 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.665 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.672 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.680 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.690 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.699 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.708 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.716 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.728 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.737 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.751 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.763 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.775 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.788 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.802 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.815 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.828 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.837 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.848 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.855 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.865 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.874 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:53.885 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRS_RDR_BW_PUBLISH SERVICE FT >>>> S_KYRS_FT_PUBLISH
+2016-05-09 13:19:54.767 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 13:19:54.801 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 13:19:54.834 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 13:19:54.869 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 13:19:54.897 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 13:19:54.930 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 13:19:54.961 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 13:19:54.997 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 13:19:55.035 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 13:19:55.072 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 13:19:55.135 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 13:19:55.168 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 13:19:55.198 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 13:19:55.237 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 13:19:57.133 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 13:19:57.263 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 13:19:57.498 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 13:19:57.637 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 13:19:58.351 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 13:19:58.533 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 13:19:58.665 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 13:19:58.912 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 13:20:06.933 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\S_KYFD_FUNC_MONITORING_PUBLICATION_root\defaultVars\$_globalVariables\GlobalVariables\CFG\KYFD\QUEUES\defaultVars.substvar.
+2016-05-09 13:20:06.962 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\S_KYFD_FUNC_MONITORING_PUBLICATION_root\defaultVars\$_globalVariables\GlobalVariables\CFG\KYFD\QUEUES\defaultVars.substvar.
+2016-05-09 13:20:06.994 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\S_KYFD_FUNC_MONITORING_PUBLICATION_root\defaultVars\$_globalVariables\GlobalVariables\CFG\KYFD\QUEUES\defaultVars.substvar.
+2016-05-09 13:20:09.719 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%GLB/MGC/DFA_SS_MGC%%
+2016-05-09 13:20:10.127 INFO  c.b.m.j.tibco.listener.TibcoListener - Formatting ESBInspector_DESKTOP-UOKULT9.xml...
+2016-05-09 13:20:10.258 INFO  c.b.m.j.tibco.listener.TibcoListener - Clearing D:\Workspace\Pool
+2016-05-09 13:20:10.968 INFO  c.b.m.j.tibco.listener.TibcoListener - COMPLETED --> ESBInspector_DESKTOP-UOKULT9.xml size is 236 Kb
+2016-05-09 13:20:10.970 INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [FlowJob: [name=tibcoServicesJob]] completed with the following parameters: [{-spring.output.ansi.enabled=always, run.id=1}] and the following status: [COMPLETED]
+2016-05-09 13:20:10.973 INFO  com.bbva.mmap.Launcher - Started Launcher in 107.443 seconds (JVM running for 109.06)
+2016-05-09 13:20:10.975 INFO  o.s.c.a.AnnotationConfigApplicationContext - Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@16bd9ed: startup date [Mon May 09 13:18:24 CEST 2016]; root of context hierarchy
+2016-05-09 13:20:10.977 INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2016-05-09 13:20:10.980 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2016-05-09 13:20:10.980 INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+2016-05-09 13:20:10.981 INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+2016-05-09 14:21:40.768 INFO  com.bbva.mmap.Launcher - Starting Launcher on DESKTOP-UOKULT9 with PID 9208 (D:\Workspace\Java\ESBInspectorLab\target\classes started by jorge in D:\Workspace\Java\ESBInspectorLab)
+2016-05-09 14:21:40.774 INFO  com.bbva.mmap.Launcher - No active profile set, falling back to default profiles: default
+2016-05-09 14:21:40.893 INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@16bd9ed: startup date [Mon May 09 14:21:40 CEST 2016]; root of context hierarchy
+2016-05-09 14:21:43.130 WARN  o.s.c.a.ConfigurationClassEnhancer - @Bean method ScopeConfiguration.stepScope is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2016-05-09 14:21:43.161 WARN  o.s.c.a.ConfigurationClassEnhancer - @Bean method ScopeConfiguration.jobScope is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2016-05-09 14:21:44.048 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2016-05-09 14:21:44.082 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2016-05-09 14:21:44.178 INFO  org.hibernate.Version - HHH000412: Hibernate Core {4.3.11.Final}
+2016-05-09 14:21:44.181 INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2016-05-09 14:21:44.183 INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2016-05-09 14:21:44.446 INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2016-05-09 14:21:44.511 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-05-09 14:21:44.569 INFO  o.h.h.i.a.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+2016-05-09 14:21:44.812 INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+2016-05-09 14:21:44.814 INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+2016-05-09 14:21:45.250 INFO  o.s.oxm.jaxb.Jaxb2Marshaller - Creating JAXBContext with classes to be bound [class com.bbva.mmap.jobs.tibco.model.input.ProcessDefinitionModel]
+2016-05-09 14:21:45.512 INFO  o.s.oxm.jaxb.Jaxb2Marshaller - Creating JAXBContext with classes to be bound [class com.bbva.mmap.jobs.tibco.model.output.TibcoOutput]
+2016-05-09 14:21:45.939 WARN  o.s.b.a.batch.BasicBatchConfigurer - JPA does not support custom isolation levels, so locks may not be taken when launching Jobs
+2016-05-09 14:21:45.943 INFO  o.s.b.c.r.s.JobRepositoryFactoryBean - No database type set, using meta data indicating: HSQL
+2016-05-09 14:21:46.079 INFO  o.s.b.c.l.support.SimpleJobLauncher - No TaskExecutor has been set, defaulting to synchronous executor.
+2016-05-09 14:21:46.120 INFO  o.s.jdbc.datasource.init.ScriptUtils - Executing SQL script from class path resource [org/springframework/batch/core/schema-hsqldb.sql]
+2016-05-09 14:21:46.134 INFO  o.s.jdbc.datasource.init.ScriptUtils - Executed SQL script from class path resource [org/springframework/batch/core/schema-hsqldb.sql] in 13 ms.
+2016-05-09 14:21:46.438 INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2016-05-09 14:21:46.461 INFO  o.s.b.a.b.JobLauncherCommandLineRunner - Running default command line with: [--spring.output.ansi.enabled=always]
+2016-05-09 14:21:46.598 INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [FlowJob: [name=tibcoServicesJob]] launched with the following parameters: [{-spring.output.ansi.enabled=always, run.id=1}]
+2016-05-09 14:21:46.609 INFO  c.b.m.j.tibco.listener.TibcoListener - Copying files to D:\Workspace\Pool\...
+2016-05-09 14:22:06.476 INFO  c.b.m.j.tibco.listener.TibcoListener - Completed.
+2016-05-09 14:22:06.476 INFO  c.b.m.j.tibco.listener.TibcoListener - Modifying .process files...
+2016-05-09 14:22:18.478 INFO  c.b.m.j.tibco.listener.TibcoListener - Completed.
+2016-05-09 14:22:18.495 INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [step]
+2016-05-09 14:22:19.769 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_EYFW_EA_XSLT_SD
+2016-05-09 14:22:20.767 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_MW_NEW
+2016-05-09 14:22:20.772 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_MW_ACK
+2016-05-09 14:22:20.779 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_MW_CANCEL
+2016-05-09 14:22:20.785 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_MW_RELEASE
+2016-05-09 14:22:21.371 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_ST_LAT_ACK
+2016-05-09 14:22:21.382 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_ST_EXCEP
+2016-05-09 14:22:21.388 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_ST_CANC
+2016-05-09 14:22:21.394 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_ST_INCR
+2016-05-09 14:22:21.400 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_ST_NEW
+2016-05-09 14:22:21.406 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_ST_NOVT
+2016-05-09 14:22:21.412 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_ST_TERM
+2016-05-09 14:22:25.115 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_TEDT_EA_GDI_GPC
+2016-05-09 14:22:25.120 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_TEDT_EA_TEDT_ACK
+2016-05-09 14:22:25.571 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KVMZ_EA_ABACO_UTI
+2016-05-09 14:22:26.467 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_EYCA_EA_ELARA_RT
+2016-05-09 14:22:26.473 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_EYCA_EA_ELARA_SNP
+2016-05-09 14:22:26.874 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KVMZ_EA_ELARA_SNP
+2016-05-09 14:22:27.072 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_ELARA_CNF
+2016-05-09 14:22:27.078 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_ELARA_DFA
+2016-05-09 14:22:28.721 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_UUAA_EA_TEST
+2016-05-09 14:22:28.832 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_ECFO_EA_CUD_RDRACK
+2016-05-09 14:22:28.837 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_ECFO_EA_CUD_RDRACK
+2016-05-09 14:22:28.842 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_ECFO_EA_CUD_RDRACK
+2016-05-09 14:22:28.847 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_ECFO_EA_CUD_RDRACK
+2016-05-09 14:22:28.852 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_ECFO_EA_CUD_RDRACK
+2016-05-09 14:22:28.859 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_ECFO_EA_CUD_RDRACK
+2016-05-09 14:22:28.866 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_ECFO_EA_CUD_RDRACK
+2016-05-09 14:22:28.873 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_ECFO_EA_CUD_RDRACK
+2016-05-09 14:22:28.880 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_ECFO_EA_CUD_RDRACK
+2016-05-09 14:22:28.886 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_ECFO_EA_CUD_RDRACK
+2016-05-09 14:22:28.892 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_ECFO_EA_CUD_RDRACK
+2016-05-09 14:22:28.899 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_ECFO_EA_CUD_SECACK
+2016-05-09 14:22:30.866 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYRS_EA_ASSET_SEC
+2016-05-09 14:22:31.069 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_ECFO_EA_CUD_MDSACK
+2016-05-09 14:22:31.255 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_ECFO_EA_CR_TRADES
+2016-05-09 14:22:31.886 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_EFON_BW_IA_FONETIC_root\defaultVars\$ARC_FindQueue\defaultVars.substvar.
+2016-05-09 14:22:32.651 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_EQPD_EA_QPD_RDRACK
+2016-05-09 14:22:32.967 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_ETMC_EA_TLMACO_RDRACK
+2016-05-09 14:22:33.717 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_EYCA_EA_BEPUB
+2016-05-09 14:22:34.221 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_EYHK_EA_ELARA_SNP
+2016-05-09 14:22:35.623 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_EYHK_EA_BEPUB
+2016-05-09 14:22:36.471 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KLMX_EA_MX_FIXING
+2016-05-09 14:22:36.479 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KLMX_EA_MX_FLOWS
+2016-05-09 14:22:36.483 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KLMX_EA_MX_TRADES
+2016-05-09 14:22:36.654 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KLTB_EA_CR_TRADES
+2016-05-09 14:22:36.734 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KLTB_CALYPSO_CR_BW_OPERACIONES_root\defaultVars\GLB\CALYPSO_CR\JMS\defaultVars.substvar.
+2016-05-09 14:22:36.736 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%GLB/CALYPSO_CR/JMS/CIB_Prefix%.%%CFG/ARCHITECTURE/ENVIRONMENT/CFG_ENVIRONMENT_PREFIX%%.%%GLB/CALYPSO_CR/JMS/CR_PREDEAL_ACK%%
+2016-05-09 14:22:36.864 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KLTB_CALYPSO_CR_BW_OPERACIONES_root\defaultVars\GLB\CALYPSO_CR\JMS\defaultVars.substvar.
+2016-05-09 14:22:36.867 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%GLB/CALYPSO_CR/JMS/CIB_Prefix%.%%CFG/ARCHITECTURE/ENVIRONMENT/CFG_ENVIRONMENT_PREFIX%%.%%GLB/CALYPSO_CR/JMS/CR_PREDEAL_ACK%%
+2016-05-09 14:22:37.086 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KQNT_EA_ST_FIXING
+2016-05-09 14:22:37.091 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KQNT_EA_ST_FLOWS
+2016-05-09 14:22:37.095 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KQNT_EA_ST_TRADES
+2016-05-09 14:22:41.985 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_DTCC_ACK
+2016-05-09 14:22:41.990 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_DTCC_ACK
+2016-05-09 14:22:41.994 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_DTCC_ACK
+2016-05-09 14:22:41.999 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_DTCC_ACK
+2016-05-09 14:22:42.004 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_DTCC_ACK
+2016-05-09 14:22:42.009 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_DTCC_ACK
+2016-05-09 14:22:42.059 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_MX_DONTREP
+2016-05-09 14:22:42.064 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_MXP2_AMEND
+2016-05-09 14:22:42.069 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_MXP2_INCR
+2016-05-09 14:22:42.073 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_MXP2_NEW
+2016-05-09 14:22:42.077 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_MXP2_NVFEE
+2016-05-09 14:22:42.082 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_MXP2_NVNEW
+2016-05-09 14:22:42.087 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_MXP2_NVOLD
+2016-05-09 14:22:42.091 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_MXP2_TERM
+2016-05-09 14:22:42.096 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_MX_CANC
+2016-05-09 14:22:42.150 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_ST_DONTREP
+2016-05-09 14:22:42.154 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_STP2_AMEND
+2016-05-09 14:22:42.158 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_STP2_INCR
+2016-05-09 14:22:42.161 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_STP2_NEW
+2016-05-09 14:22:42.167 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_STP2_NVFEE
+2016-05-09 14:22:42.172 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_STP2_NVNEW
+2016-05-09 14:22:42.176 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_STP2_NVOLD
+2016-05-09 14:22:42.180 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_STP2_TERM
+2016-05-09 14:22:42.183 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_ST_CANC
+2016-05-09 14:22:42.249 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFK_EA_CUD_RDRACK
+2016-05-09 14:22:42.256 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFK_EA_CUD_RDRACK
+2016-05-09 14:22:42.263 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFK_EA_CUD_RDRACK
+2016-05-09 14:22:42.271 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFK_EA_CUD_RDRACK
+2016-05-09 14:22:42.278 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFK_EA_CUD_RDRACK
+2016-05-09 14:22:42.284 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFK_EA_CUD_RDRACK
+2016-05-09 14:22:42.291 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFK_EA_CUD_RDRACK
+2016-05-09 14:22:42.297 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFK_EA_CUD_RDRACK
+2016-05-09 14:22:42.306 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFK_EA_CUD_RDRACK
+2016-05-09 14:22:43.222 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFK_EA_NOTIF
+2016-05-09 14:22:43.231 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFK_EA_TRIGGER
+2016-05-09 14:22:43.238 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFK_EA_UTI_ACK
+2016-05-09 14:22:43.307 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYFK_CALYPSO_BW_LIQUIDACIONES_root\defaultVars\
+\GLB\CALYPSO\JMS\defaultVars.substvar.
+2016-05-09 14:22:43.435 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYFK_CALYPSO_BW_LIQUIDACIONES_root\defaultVars\
+\GLB\CALYPSO\JMS\defaultVars.substvar.
+2016-05-09 14:22:43.693 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYFK_CALYPSO_BW_LIQUIDACIONES_root\defaultVars\
+\GLB\CALYPSO\JMS\defaultVars.substvar.
+2016-05-09 14:22:43.703 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYFK_CALYPSO_BW_LIQUIDACIONES_root\defaultVars\
+\GLB\CALYPSO\JMS\defaultVars.substvar.
+2016-05-09 14:22:43.809 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFK_EA_CUD_HDRACK
+2016-05-09 14:22:43.819 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFK_EA_CUD_FIXACK
+2016-05-09 14:22:43.824 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFK_EA_CUD_HDRACK
+2016-05-09 14:22:44.323 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFK_EA_CUD_MDSACK
+2016-05-09 14:22:44.690 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYGM_EA_DBS_RDRACK
+2016-05-09 14:22:46.108 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYNM_EA_INSERTMD
+2016-05-09 14:22:46.449 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%GLB/AMIGA/JMS/env_Backend_Queue_IN%%
+2016-05-09 14:22:51.596 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:22:51.605 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 14:22:51.613 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:22:51.621 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 14:22:51.629 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:22:51.638 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 14:22:51.645 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:22:51.682 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 14:22:51.691 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 14:22:51.699 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 14:22:51.706 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:22:51.718 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:22:51.730 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:22:51.742 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:22:52.057 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYRS_EA_PUBLISH
+2016-05-09 14:22:53.259 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:22:53.266 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 14:22:53.273 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:22:53.281 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 14:22:53.289 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:22:53.299 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 14:22:53.307 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:22:53.317 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 14:22:53.326 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 14:22:53.335 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 14:22:53.344 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:22:53.355 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:22:53.363 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:22:53.372 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:22:53.808 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYRX_EA_NOTIF
+2016-05-09 14:22:53.813 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYRX_EA_TRIGGER
+2016-05-09 14:22:54.117 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYRX_EA_ST_REPORT
+2016-05-09 14:22:55.009 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 14:22:55.110 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 14:22:55.316 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 14:22:55.437 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 14:22:56.048 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 14:22:56.154 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 14:22:56.259 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 14:22:56.448 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 14:22:59.474 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KVMZ_EA_BEPUB
+2016-05-09 14:22:59.877 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_EYSJ_EA_RE_TRARES
+2016-05-09 14:23:00.166 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_EYSJ_EA_RE_TRARES
+2016-05-09 14:23:00.479 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_EYSJ_EA_RE_TRARES
+2016-05-09 14:23:00.958 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KSBC_EA_ST_POSREP
+2016-05-09 14:23:01.413 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFO_EA_MX_POSREP
+2016-05-09 14:23:01.759 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFO_EA_MX_POSREP
+2016-05-09 14:23:02.070 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFO_EA_MX_POSREP
+2016-05-09 14:23:02.420 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFO_EA_MX_POSREP
+2016-05-09 14:23:02.728 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFO_EA_MX_POSREP
+2016-05-09 14:23:02.921 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYSH_EA_RE_TRARES
+2016-05-09 14:23:03.377 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYSX_EA_ST_POSREP
+2016-05-09 14:23:03.914 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\S_KYFD_FUNC_MONITORING_PUBLICATION_root\defaultVars\$_globalVariables\GlobalVariables\CFG\KYFD\QUEUES\defaultVars.substvar.
+2016-05-09 14:23:03.918 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\S_KYFD_FUNC_MONITORING_PUBLICATION_root\defaultVars\$_globalVariables\GlobalVariables\CFG\KYFD\QUEUES\defaultVars.substvar.
+2016-05-09 14:23:03.924 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\S_KYFD_FUNC_MONITORING_PUBLICATION_root\defaultVars\$_globalVariables\GlobalVariables\CFG\KYFD\QUEUES\defaultVars.substvar.
+2016-05-09 14:23:04.187 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KVMZ_EA_ABACO_UTI
+2016-05-09 14:23:07.308 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%GLB/MGC/DFA_SS_MGC%%
+2016-05-09 14:23:07.490 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYFD_EA_BN_DB_STR
+2016-05-09 14:23:07.527 INFO  c.b.m.j.t.p.TibcoOutputProcessor - EA SERVICE >>>> S_KYGI_EA_RE_UTI
+2016-05-09 14:23:07.660 INFO  c.b.m.j.tibco.listener.TibcoListener - Formatting ESBInspector_DESKTOP-UOKULT9.xml...
+2016-05-09 14:23:07.787 INFO  c.b.m.j.tibco.listener.TibcoListener - Clearing D:\Workspace\Pool
+2016-05-09 14:23:08.352 INFO  c.b.m.j.tibco.listener.TibcoListener - COMPLETED --> ESBInspector_DESKTOP-UOKULT9.xml size is 236 Kb
+2016-05-09 14:23:08.353 INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [FlowJob: [name=tibcoServicesJob]] completed with the following parameters: [{-spring.output.ansi.enabled=always, run.id=1}] and the following status: [COMPLETED]
+2016-05-09 14:23:08.356 INFO  com.bbva.mmap.Launcher - Started Launcher in 88.115 seconds (JVM running for 89.102)
+2016-05-09 14:23:08.357 INFO  o.s.c.a.AnnotationConfigApplicationContext - Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@16bd9ed: startup date [Mon May 09 14:21:40 CEST 2016]; root of context hierarchy
+2016-05-09 14:23:08.359 INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2016-05-09 14:23:08.360 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2016-05-09 14:23:08.361 INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+2016-05-09 14:23:08.361 INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+2016-05-09 14:23:56.255 INFO  com.bbva.mmap.Launcher - Starting Launcher on DESKTOP-UOKULT9 with PID 6924 (D:\Workspace\Java\ESBInspectorLab\target\classes started by jorge in D:\Workspace\Java\ESBInspectorLab)
+2016-05-09 14:23:56.261 INFO  com.bbva.mmap.Launcher - No active profile set, falling back to default profiles: default
+2016-05-09 14:23:56.425 INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@16bd9ed: startup date [Mon May 09 14:23:56 CEST 2016]; root of context hierarchy
+2016-05-09 14:23:58.343 WARN  o.s.c.a.ConfigurationClassEnhancer - @Bean method ScopeConfiguration.stepScope is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2016-05-09 14:23:58.371 WARN  o.s.c.a.ConfigurationClassEnhancer - @Bean method ScopeConfiguration.jobScope is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2016-05-09 14:23:59.250 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2016-05-09 14:23:59.281 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2016-05-09 14:23:59.417 INFO  org.hibernate.Version - HHH000412: Hibernate Core {4.3.11.Final}
+2016-05-09 14:23:59.420 INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2016-05-09 14:23:59.422 INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2016-05-09 14:23:59.688 INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2016-05-09 14:23:59.760 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-05-09 14:23:59.819 INFO  o.h.h.i.a.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+2016-05-09 14:24:00.091 INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+2016-05-09 14:24:00.093 INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+2016-05-09 14:24:00.505 INFO  o.s.oxm.jaxb.Jaxb2Marshaller - Creating JAXBContext with classes to be bound [class com.bbva.mmap.jobs.tibco.model.input.ProcessDefinitionModel]
+2016-05-09 14:24:00.953 INFO  o.s.oxm.jaxb.Jaxb2Marshaller - Creating JAXBContext with classes to be bound [class com.bbva.mmap.jobs.tibco.model.output.TibcoOutput]
+2016-05-09 14:24:01.289 WARN  o.s.b.a.batch.BasicBatchConfigurer - JPA does not support custom isolation levels, so locks may not be taken when launching Jobs
+2016-05-09 14:24:01.295 INFO  o.s.b.c.r.s.JobRepositoryFactoryBean - No database type set, using meta data indicating: HSQL
+2016-05-09 14:24:01.429 INFO  o.s.b.c.l.support.SimpleJobLauncher - No TaskExecutor has been set, defaulting to synchronous executor.
+2016-05-09 14:24:01.466 INFO  o.s.jdbc.datasource.init.ScriptUtils - Executing SQL script from class path resource [org/springframework/batch/core/schema-hsqldb.sql]
+2016-05-09 14:24:01.479 INFO  o.s.jdbc.datasource.init.ScriptUtils - Executed SQL script from class path resource [org/springframework/batch/core/schema-hsqldb.sql] in 13 ms.
+2016-05-09 14:24:01.781 INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2016-05-09 14:24:01.809 INFO  o.s.b.a.b.JobLauncherCommandLineRunner - Running default command line with: [--spring.output.ansi.enabled=always]
+2016-05-09 14:24:01.939 INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [FlowJob: [name=tibcoServicesJob]] launched with the following parameters: [{-spring.output.ansi.enabled=always, run.id=1}]
+2016-05-09 14:24:01.949 INFO  c.b.m.j.tibco.listener.TibcoListener - Copying files to D:\Workspace\Pool\...
+2016-05-09 14:24:23.037 INFO  c.b.m.j.tibco.listener.TibcoListener - Completed.
+2016-05-09 14:24:23.038 INFO  c.b.m.j.tibco.listener.TibcoListener - Modifying .process files...
+2016-05-09 14:24:34.544 INFO  c.b.m.j.tibco.listener.TibcoListener - Completed.
+2016-05-09 14:24:34.559 INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [step]
+2016-05-09 14:24:50.466 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_EFON_BW_IA_FONETIC_root\defaultVars\$ARC_FindQueue\defaultVars.substvar.
+2016-05-09 14:24:56.410 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KLTB_CALYPSO_CR_BW_OPERACIONES_root\defaultVars\GLB\CALYPSO_CR\JMS\defaultVars.substvar.
+2016-05-09 14:24:56.412 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%GLB/CALYPSO_CR/JMS/CIB_Prefix%.%%CFG/ARCHITECTURE/ENVIRONMENT/CFG_ENVIRONMENT_PREFIX%%.%%GLB/CALYPSO_CR/JMS/CR_PREDEAL_ACK%%
+2016-05-09 14:24:56.565 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KLTB_CALYPSO_CR_BW_OPERACIONES_root\defaultVars\GLB\CALYPSO_CR\JMS\defaultVars.substvar.
+2016-05-09 14:24:56.567 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%GLB/CALYPSO_CR/JMS/CIB_Prefix%.%%CFG/ARCHITECTURE/ENVIRONMENT/CFG_ENVIRONMENT_PREFIX%%.%%GLB/CALYPSO_CR/JMS/CR_PREDEAL_ACK%%
+2016-05-09 14:25:03.510 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYFK_CALYPSO_BW_LIQUIDACIONES_root\defaultVars\
+\GLB\CALYPSO\JMS\defaultVars.substvar.
+2016-05-09 14:25:03.648 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYFK_CALYPSO_BW_LIQUIDACIONES_root\defaultVars\
+\GLB\CALYPSO\JMS\defaultVars.substvar.
+2016-05-09 14:25:03.952 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYFK_CALYPSO_BW_LIQUIDACIONES_root\defaultVars\
+\GLB\CALYPSO\JMS\defaultVars.substvar.
+2016-05-09 14:25:03.990 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYFK_CALYPSO_BW_LIQUIDACIONES_root\defaultVars\
+\GLB\CALYPSO\JMS\defaultVars.substvar.
+2016-05-09 14:25:07.207 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%GLB/AMIGA/JMS/env_Backend_Queue_IN%%
+2016-05-09 14:25:12.931 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:25:12.966 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 14:25:12.993 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:25:13.021 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 14:25:13.050 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:25:13.082 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 14:25:13.112 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:25:13.145 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 14:25:13.188 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 14:25:13.242 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 14:25:13.302 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:25:13.335 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:25:13.370 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:25:13.408 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:25:15.212 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:25:15.243 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 14:25:15.275 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:25:15.306 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 14:25:15.336 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:25:15.368 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 14:25:15.400 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:25:15.438 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 14:25:15.481 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 14:25:15.521 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 14:25:15.559 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:25:15.593 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:25:15.621 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:25:15.892 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 14:25:17.720 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 14:25:17.857 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 14:25:18.074 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 14:25:18.217 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 14:25:18.961 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 14:25:19.130 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 14:25:19.269 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 14:25:19.493 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 14:25:27.349 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\S_KYFD_FUNC_MONITORING_PUBLICATION_root\defaultVars\$_globalVariables\GlobalVariables\CFG\KYFD\QUEUES\defaultVars.substvar.
+2016-05-09 14:25:27.379 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\S_KYFD_FUNC_MONITORING_PUBLICATION_root\defaultVars\$_globalVariables\GlobalVariables\CFG\KYFD\QUEUES\defaultVars.substvar.
+2016-05-09 14:25:27.409 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\S_KYFD_FUNC_MONITORING_PUBLICATION_root\defaultVars\$_globalVariables\GlobalVariables\CFG\KYFD\QUEUES\defaultVars.substvar.
+2016-05-09 14:25:30.355 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%GLB/MGC/DFA_SS_MGC%%
+2016-05-09 14:25:30.912 INFO  c.b.m.j.tibco.listener.TibcoListener - Formatting ESBInspector_DESKTOP-UOKULT9.xml...
+2016-05-09 14:25:31.071 INFO  c.b.m.j.tibco.listener.TibcoListener - Clearing D:\Workspace\Pool
+2016-05-09 14:25:31.780 INFO  c.b.m.j.tibco.listener.TibcoListener - COMPLETED --> ESBInspector_DESKTOP-UOKULT9.xml size is 271 Kb
+2016-05-09 14:25:31.782 INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [FlowJob: [name=tibcoServicesJob]] completed with the following parameters: [{-spring.output.ansi.enabled=always, run.id=1}] and the following status: [COMPLETED]
+2016-05-09 14:25:31.785 INFO  com.bbva.mmap.Launcher - Started Launcher in 96.177 seconds (JVM running for 97.178)
+2016-05-09 14:25:31.786 INFO  o.s.c.a.AnnotationConfigApplicationContext - Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@16bd9ed: startup date [Mon May 09 14:23:56 CEST 2016]; root of context hierarchy
+2016-05-09 14:25:31.789 INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2016-05-09 14:25:31.790 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2016-05-09 14:25:31.792 INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+2016-05-09 14:25:31.793 INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+2016-05-09 15:47:01.424 INFO  com.bbva.mmap.Launcher - Starting Launcher on DESKTOP-UOKULT9 with PID 1980 (D:\Workspace\Java\ESBInspectorLab\target\classes started by jorge in D:\Workspace\Java\ESBInspectorLab)
+2016-05-09 15:47:01.431 INFO  com.bbva.mmap.Launcher - No active profile set, falling back to default profiles: default
+2016-05-09 15:47:01.674 INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@6500571e: startup date [Mon May 09 15:47:01 CEST 2016]; root of context hierarchy
+2016-05-09 15:47:04.765 WARN  o.s.c.a.ConfigurationClassEnhancer - @Bean method ScopeConfiguration.stepScope is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2016-05-09 15:47:04.787 WARN  o.s.c.a.ConfigurationClassEnhancer - @Bean method ScopeConfiguration.jobScope is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2016-05-09 15:47:05.774 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2016-05-09 15:47:05.805 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2016-05-09 15:47:05.900 INFO  org.hibernate.Version - HHH000412: Hibernate Core {4.3.11.Final}
+2016-05-09 15:47:05.903 INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2016-05-09 15:47:05.905 INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2016-05-09 15:47:06.170 INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2016-05-09 15:47:06.232 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-05-09 15:47:06.286 INFO  o.h.h.i.a.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+2016-05-09 15:47:06.545 INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+2016-05-09 15:47:06.547 INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+2016-05-09 15:47:06.883 INFO  o.s.oxm.jaxb.Jaxb2Marshaller - Creating JAXBContext with classes to be bound [class com.bbva.mmap.jobs.tibco.model.input.ProcessDefinitionModel]
+2016-05-09 15:47:07.086 INFO  o.s.oxm.jaxb.Jaxb2Marshaller - Creating JAXBContext with classes to be bound [class com.bbva.mmap.jobs.tibco.model.output.TibcoOutput]
+2016-05-09 15:47:07.459 WARN  o.s.b.a.batch.BasicBatchConfigurer - JPA does not support custom isolation levels, so locks may not be taken when launching Jobs
+2016-05-09 15:47:07.465 INFO  o.s.b.c.r.s.JobRepositoryFactoryBean - No database type set, using meta data indicating: HSQL
+2016-05-09 15:47:07.629 INFO  o.s.b.c.l.support.SimpleJobLauncher - No TaskExecutor has been set, defaulting to synchronous executor.
+2016-05-09 15:47:07.665 INFO  o.s.jdbc.datasource.init.ScriptUtils - Executing SQL script from class path resource [org/springframework/batch/core/schema-hsqldb.sql]
+2016-05-09 15:47:07.676 INFO  o.s.jdbc.datasource.init.ScriptUtils - Executed SQL script from class path resource [org/springframework/batch/core/schema-hsqldb.sql] in 11 ms.
+2016-05-09 15:47:07.957 INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2016-05-09 15:47:08.009 INFO  o.s.b.a.b.JobLauncherCommandLineRunner - Running default command line with: [--spring.output.ansi.enabled=always]
+2016-05-09 15:47:08.216 INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [FlowJob: [name=tibcoServicesJob]] launched with the following parameters: [{-spring.output.ansi.enabled=always, run.id=1}]
+2016-05-09 15:47:08.228 INFO  c.b.m.j.tibco.listener.TibcoListener - Copying files to D:\Workspace\Pool\...
+2016-05-09 15:47:27.883 INFO  c.b.m.j.tibco.listener.TibcoListener - Completed.
+2016-05-09 15:47:27.883 INFO  c.b.m.j.tibco.listener.TibcoListener - Modifying .process files...
+2016-05-09 15:47:39.812 INFO  c.b.m.j.tibco.listener.TibcoListener - Completed.
+2016-05-09 15:47:39.829 INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [step]
+2016-05-09 15:47:47.855 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA-EYCA_BW_IA_ARCE/S_KVMZ_EA_ABACO_UTI >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:47:51.567 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA-KVMZ_BW_PEOPLESOFT/S_UUAA_EA_TEST >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:47:51.681 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_DATOS_ESTATICOS/S_ECFO_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:47:51.690 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_DATOS_ESTATICOS/S_ECFO_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:47:51.699 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_DATOS_ESTATICOS/S_ECFO_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:47:51.709 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_DATOS_ESTATICOS/S_ECFO_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:47:51.718 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_DATOS_ESTATICOS/S_ECFO_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:47:51.728 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_DATOS_ESTATICOS/S_ECFO_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:47:51.739 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_DATOS_ESTATICOS/S_ECFO_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:47:51.750 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_DATOS_ESTATICOS/S_ECFO_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:47:51.759 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_DATOS_ESTATICOS/S_ECFO_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:47:51.768 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_DATOS_ESTATICOS/S_ECFO_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:47:51.779 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_DATOS_ESTATICOS/S_ECFO_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:47:51.793 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_DATOS_ESTATICOS/S_ECFO_EA_CUD_SECACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:47:54.122 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_DATOS_ESTATICOS/S_KYRS_EA_ASSET_SEC >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:47:54.580 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_OPERACIONES/S_ECFO_EA_CR_TRADES >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:47:55.354 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_EFON_BW_IA_FONETIC_root\defaultVars\$ARC_FindQueue\defaultVars.substvar.
+2016-05-09 15:47:56.368 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_EQPD_BW_QUOTEPAD_DATOS_ESTATICOS/S_EQPD_EA_QPD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:47:56.766 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ETMC_BW_TLMACO_DATOS_ESTATICOS/S_ETMC_EA_TLMACO_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:48:00.973 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KLTB_CALYPSO_CR_BW_OPERACIONES/S_KLTB_EA_CR_TRADES >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:48:01.077 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KLTB_CALYPSO_CR_BW_OPERACIONES_root\defaultVars\GLB\CALYPSO_CR\JMS\defaultVars.substvar.
+2016-05-09 15:48:01.079 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%GLB/CALYPSO_CR/JMS/CIB_Prefix%.%%CFG/ARCHITECTURE/ENVIRONMENT/CFG_ENVIRONMENT_PREFIX%%.%%GLB/CALYPSO_CR/JMS/CR_PREDEAL_ACK%%
+2016-05-09 15:48:01.242 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KLTB_CALYPSO_CR_BW_OPERACIONES_root\defaultVars\GLB\CALYPSO_CR\JMS\defaultVars.substvar.
+2016-05-09 15:48:01.244 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%GLB/CALYPSO_CR/JMS/CIB_Prefix%.%%CFG/ARCHITECTURE/ENVIRONMENT/CFG_ENVIRONMENT_PREFIX%%.%%GLB/CALYPSO_CR/JMS/CR_PREDEAL_ACK%%
+2016-05-09 15:48:06.763 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYFK_CALYPSO_BW_DATOS_ESTATICOS/S_KYFK_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:48:06.773 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYFK_CALYPSO_BW_DATOS_ESTATICOS/S_KYFK_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:48:06.783 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYFK_CALYPSO_BW_DATOS_ESTATICOS/S_KYFK_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:48:06.792 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYFK_CALYPSO_BW_DATOS_ESTATICOS/S_KYFK_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:48:06.801 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYFK_CALYPSO_BW_DATOS_ESTATICOS/S_KYFK_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:48:06.812 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYFK_CALYPSO_BW_DATOS_ESTATICOS/S_KYFK_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:48:06.825 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYFK_CALYPSO_BW_DATOS_ESTATICOS/S_KYFK_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:48:06.835 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYFK_CALYPSO_BW_DATOS_ESTATICOS/S_KYFK_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:48:06.845 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYFK_CALYPSO_BW_DATOS_ESTATICOS/S_KYFK_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:48:07.951 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYFK_CALYPSO_BW_LIQUIDACIONES/S_KYFK_EA_NOTIF >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:48:07.960 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYFK_CALYPSO_BW_LIQUIDACIONES/S_KYFK_EA_TRIGGER >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:48:08.057 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYFK_CALYPSO_BW_LIQUIDACIONES_root\defaultVars\
+\GLB\CALYPSO\JMS\defaultVars.substvar.
+2016-05-09 15:48:08.246 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYFK_CALYPSO_BW_LIQUIDACIONES_root\defaultVars\
+\GLB\CALYPSO\JMS\defaultVars.substvar.
+2016-05-09 15:48:08.626 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYFK_CALYPSO_BW_LIQUIDACIONES_root\defaultVars\
+\GLB\CALYPSO\JMS\defaultVars.substvar.
+2016-05-09 15:48:08.655 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYFK_CALYPSO_BW_LIQUIDACIONES_root\defaultVars\
+\GLB\CALYPSO\JMS\defaultVars.substvar.
+2016-05-09 15:48:09.758 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYGM_BW_DBS_DATOS_ESTATICOS/S_KYGM_EA_DBS_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:48:11.912 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%GLB/AMIGA/JMS/env_Backend_Queue_IN%%
+2016-05-09 15:48:17.687 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 15:48:17.717 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 15:48:17.745 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 15:48:17.776 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 15:48:17.804 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 15:48:17.839 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 15:48:17.867 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 15:48:17.902 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 15:48:17.941 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 15:48:17.983 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 15:48:18.025 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 15:48:18.055 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 15:48:18.090 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 15:48:18.124 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 15:48:19.850 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 15:48:19.880 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 15:48:19.908 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 15:48:19.942 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 15:48:19.973 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 15:48:20.003 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 15:48:20.039 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 15:48:20.073 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 15:48:20.116 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 15:48:20.154 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 15:48:20.192 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 15:48:20.225 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 15:48:20.258 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 15:48:20.293 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 15:48:20.799 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRX_BW_SCRITTURA_SERVICE/S_KYRX_EA_NOTIF >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:48:20.805 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRX_BW_SCRITTURA_SERVICE/S_KYRX_EA_TRIGGER >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:48:22.149 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 15:48:22.281 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 15:48:22.508 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 15:48:22.643 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 15:48:23.354 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 15:48:23.475 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 15:48:23.609 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 15:48:23.830 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 15:48:31.614 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\S_KYFD_FUNC_MONITORING_PUBLICATION_root\defaultVars\$_globalVariables\GlobalVariables\CFG\KYFD\QUEUES\defaultVars.substvar.
+2016-05-09 15:48:31.638 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\S_KYFD_FUNC_MONITORING_PUBLICATION_root\defaultVars\$_globalVariables\GlobalVariables\CFG\KYFD\QUEUES\defaultVars.substvar.
+2016-05-09 15:48:31.662 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\S_KYFD_FUNC_MONITORING_PUBLICATION_root\defaultVars\$_globalVariables\GlobalVariables\CFG\KYFD\QUEUES\defaultVars.substvar.
+2016-05-09 15:48:31.937 INFO  c.b.m.j.t.p.TibcoOutputProcessor - TB_KVMZ_BW_UTI_DIFUS/S_KVMZ_EA_ABACO_UTI >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 15:48:34.235 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%GLB/MGC/DFA_SS_MGC%%
+2016-05-09 15:48:34.616 INFO  c.b.m.j.tibco.listener.TibcoListener - Formatting ESBInspector_DESKTOP-UOKULT9.xml...
+2016-05-09 15:48:34.741 INFO  c.b.m.j.tibco.listener.TibcoListener - Clearing D:\Workspace\Pool
+2016-05-09 15:48:35.286 INFO  c.b.m.j.tibco.listener.TibcoListener - COMPLETED --> ESBInspector_DESKTOP-UOKULT9.xml size is 271 Kb
+2016-05-09 15:48:35.287 INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [FlowJob: [name=tibcoServicesJob]] completed with the following parameters: [{-spring.output.ansi.enabled=always, run.id=1}] and the following status: [COMPLETED]
+2016-05-09 15:48:35.289 INFO  com.bbva.mmap.Launcher - Started Launcher in 94.718 seconds (JVM running for 95.75)
+2016-05-09 15:48:35.290 INFO  o.s.c.a.AnnotationConfigApplicationContext - Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@6500571e: startup date [Mon May 09 15:47:01 CEST 2016]; root of context hierarchy
+2016-05-09 15:48:35.293 INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2016-05-09 15:48:35.295 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2016-05-09 15:48:35.295 INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+2016-05-09 15:48:35.296 INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+2016-05-09 15:59:54.850 INFO  com.bbva.mmap.Launcher - Starting Launcher on DESKTOP-UOKULT9 with PID 9784 (D:\Workspace\Java\ESBInspectorLab\target\classes started by jorge in D:\Workspace\Java\ESBInspectorLab)
+2016-05-09 15:59:54.856 INFO  com.bbva.mmap.Launcher - No active profile set, falling back to default profiles: default
+2016-05-09 15:59:55.059 INFO  o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@16bd9ed: startup date [Mon May 09 15:59:55 CEST 2016]; root of context hierarchy
+2016-05-09 15:59:56.995 WARN  o.s.c.a.ConfigurationClassEnhancer - @Bean method ScopeConfiguration.stepScope is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2016-05-09 15:59:57.021 WARN  o.s.c.a.ConfigurationClassEnhancer - @Bean method ScopeConfiguration.jobScope is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2016-05-09 15:59:57.979 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2016-05-09 15:59:58.022 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2016-05-09 15:59:58.160 INFO  org.hibernate.Version - HHH000412: Hibernate Core {4.3.11.Final}
+2016-05-09 15:59:58.162 INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2016-05-09 15:59:58.163 INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2016-05-09 15:59:58.429 INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2016-05-09 15:59:58.500 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+2016-05-09 15:59:58.559 INFO  o.h.h.i.a.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+2016-05-09 15:59:58.840 INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+2016-05-09 15:59:58.842 INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+2016-05-09 15:59:59.229 INFO  o.s.oxm.jaxb.Jaxb2Marshaller - Creating JAXBContext with classes to be bound [class com.bbva.mmap.jobs.tibco.model.input.ProcessDefinitionModel]
+2016-05-09 15:59:59.488 INFO  o.s.oxm.jaxb.Jaxb2Marshaller - Creating JAXBContext with classes to be bound [class com.bbva.mmap.jobs.tibco.model.output.TibcoOutput]
+2016-05-09 15:59:59.987 WARN  o.s.b.a.batch.BasicBatchConfigurer - JPA does not support custom isolation levels, so locks may not be taken when launching Jobs
+2016-05-09 15:59:59.993 INFO  o.s.b.c.r.s.JobRepositoryFactoryBean - No database type set, using meta data indicating: HSQL
+2016-05-09 16:00:00.166 INFO  o.s.b.c.l.support.SimpleJobLauncher - No TaskExecutor has been set, defaulting to synchronous executor.
+2016-05-09 16:00:00.229 INFO  o.s.jdbc.datasource.init.ScriptUtils - Executing SQL script from class path resource [org/springframework/batch/core/schema-hsqldb.sql]
+2016-05-09 16:00:00.240 INFO  o.s.jdbc.datasource.init.ScriptUtils - Executed SQL script from class path resource [org/springframework/batch/core/schema-hsqldb.sql] in 10 ms.
+2016-05-09 16:00:00.509 INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2016-05-09 16:00:00.533 INFO  o.s.b.a.b.JobLauncherCommandLineRunner - Running default command line with: [--spring.output.ansi.enabled=always]
+2016-05-09 16:00:00.669 INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [FlowJob: [name=tibcoServicesJob]] launched with the following parameters: [{-spring.output.ansi.enabled=always, run.id=1}]
+2016-05-09 16:00:00.678 INFO  c.b.m.j.tibco.listener.TibcoListener - Copying files to D:\Workspace\Pool\...
+2016-05-09 16:00:19.822 INFO  c.b.m.j.tibco.listener.TibcoListener - Completed.
+2016-05-09 16:00:19.822 INFO  c.b.m.j.tibco.listener.TibcoListener - Modifying .process files...
+2016-05-09 16:00:31.650 INFO  c.b.m.j.tibco.listener.TibcoListener - Completed.
+2016-05-09 16:00:31.667 INFO  o.s.batch.core.job.SimpleStepHandler - Executing step: [step]
+2016-05-09 16:00:40.484 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA-EYCA_BW_IA_ARCE/S_KVMZ_EA_ABACO_UTI >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:00:45.179 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA-KVMZ_BW_PEOPLESOFT/S_UUAA_EA_TEST >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:00:45.308 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_DATOS_ESTATICOS/S_ECFO_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:00:45.318 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_DATOS_ESTATICOS/S_ECFO_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:00:45.328 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_DATOS_ESTATICOS/S_ECFO_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:00:45.338 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_DATOS_ESTATICOS/S_ECFO_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:00:45.348 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_DATOS_ESTATICOS/S_ECFO_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:00:45.361 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_DATOS_ESTATICOS/S_ECFO_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:00:45.371 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_DATOS_ESTATICOS/S_ECFO_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:00:45.385 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_DATOS_ESTATICOS/S_ECFO_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:00:45.399 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_DATOS_ESTATICOS/S_ECFO_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:00:45.410 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_DATOS_ESTATICOS/S_ECFO_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:00:45.423 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_DATOS_ESTATICOS/S_ECFO_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:00:45.436 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_DATOS_ESTATICOS/S_ECFO_EA_CUD_SECACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:00:47.986 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_DATOS_ESTATICOS/S_KYRS_EA_ASSET_SEC >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:00:48.465 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ECFO_CALYPSO_CR_BW_OPERACIONES/S_ECFO_EA_CR_TRADES >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:00:49.253 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_EFON_BW_IA_FONETIC_root\defaultVars\$ARC_FindQueue\defaultVars.substvar.
+2016-05-09 16:00:50.604 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_EQPD_BW_QUOTEPAD_DATOS_ESTATICOS/S_EQPD_EA_QPD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:00:51.085 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_ETMC_BW_TLMACO_DATOS_ESTATICOS/S_ETMC_EA_TLMACO_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:00:55.545 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KLTB_CALYPSO_CR_BW_OPERACIONES/S_KLTB_EA_CR_TRADES >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:00:55.909 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KLTB_CALYPSO_CR_BW_OPERACIONES_root\defaultVars\GLB\CALYPSO_CR\JMS\defaultVars.substvar.
+2016-05-09 16:00:55.911 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%GLB/CALYPSO_CR/JMS/CIB_Prefix%.%%CFG/ARCHITECTURE/ENVIRONMENT/CFG_ENVIRONMENT_PREFIX%%.%%GLB/CALYPSO_CR/JMS/CR_PREDEAL_ACK%%
+2016-05-09 16:00:56.058 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KLTB_CALYPSO_CR_BW_OPERACIONES_root\defaultVars\GLB\CALYPSO_CR\JMS\defaultVars.substvar.
+2016-05-09 16:00:56.061 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%GLB/CALYPSO_CR/JMS/CIB_Prefix%.%%CFG/ARCHITECTURE/ENVIRONMENT/CFG_ENVIRONMENT_PREFIX%%.%%GLB/CALYPSO_CR/JMS/CR_PREDEAL_ACK%%
+2016-05-09 16:01:02.401 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYFK_CALYPSO_BW_DATOS_ESTATICOS/S_KYFK_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:01:02.411 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYFK_CALYPSO_BW_DATOS_ESTATICOS/S_KYFK_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:01:02.420 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYFK_CALYPSO_BW_DATOS_ESTATICOS/S_KYFK_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:01:02.428 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYFK_CALYPSO_BW_DATOS_ESTATICOS/S_KYFK_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:01:02.438 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYFK_CALYPSO_BW_DATOS_ESTATICOS/S_KYFK_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:01:02.446 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYFK_CALYPSO_BW_DATOS_ESTATICOS/S_KYFK_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:01:02.457 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYFK_CALYPSO_BW_DATOS_ESTATICOS/S_KYFK_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:01:02.465 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYFK_CALYPSO_BW_DATOS_ESTATICOS/S_KYFK_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:01:02.477 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYFK_CALYPSO_BW_DATOS_ESTATICOS/S_KYFK_EA_CUD_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:01:03.550 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYFK_CALYPSO_BW_LIQUIDACIONES/S_KYFK_EA_NOTIF >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:01:03.560 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYFK_CALYPSO_BW_LIQUIDACIONES/S_KYFK_EA_TRIGGER >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:01:03.657 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYFK_CALYPSO_BW_LIQUIDACIONES_root\defaultVars\
+\GLB\CALYPSO\JMS\defaultVars.substvar.
+2016-05-09 16:01:03.814 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYFK_CALYPSO_BW_LIQUIDACIONES_root\defaultVars\
+\GLB\CALYPSO\JMS\defaultVars.substvar.
+2016-05-09 16:01:04.138 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYFK_CALYPSO_BW_LIQUIDACIONES_root\defaultVars\
+\GLB\CALYPSO\JMS\defaultVars.substvar.
+2016-05-09 16:01:04.176 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYFK_CALYPSO_BW_LIQUIDACIONES_root\defaultVars\
+\GLB\CALYPSO\JMS\defaultVars.substvar.
+2016-05-09 16:01:05.325 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYGM_BW_DBS_DATOS_ESTATICOS/S_KYGM_EA_DBS_RDRACK >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:01:07.679 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%GLB/AMIGA/JMS/env_Backend_Queue_IN%%
+2016-05-09 16:01:13.795 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 16:01:13.829 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 16:01:13.866 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 16:01:13.906 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 16:01:13.942 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 16:01:13.977 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 16:01:14.019 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 16:01:14.061 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 16:01:14.111 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 16:01:14.168 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 16:01:14.218 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 16:01:14.262 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 16:01:14.303 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 16:01:14.347 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW-PUB_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 16:01:16.263 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 16:01:16.295 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 16:01:16.332 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 16:01:16.365 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 16:01:16.400 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 16:01:16.510 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 16:01:16.549 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 16:01:16.584 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 16:01:16.623 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 16:01:16.658 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\defaultVars.substvar.
+2016-05-09 16:01:16.688 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 16:01:16.724 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 16:01:16.760 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 16:01:16.796 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\GMA_KYRS_RDR_BW_PUBLISH_root\defaultVars\
+\GLB\RDR\JMS\ACK\defaultVars.substvar.
+2016-05-09 16:01:17.329 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRX_BW_SCRITTURA_SERVICE/S_KYRX_EA_NOTIF >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:01:17.337 INFO  c.b.m.j.t.p.TibcoOutputProcessor - GMA_KYRX_BW_SCRITTURA_SERVICE/S_KYRX_EA_TRIGGER >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:01:18.803 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 16:01:18.951 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 16:01:19.172 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 16:01:19.311 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 16:01:20.278 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 16:01:20.423 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 16:01:20.576 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 16:01:20.860 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%CFG/EJQP/BackendMidas/QueueMIDAS%%
+2016-05-09 16:01:29.437 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\S_KYFD_FUNC_MONITORING_PUBLICATION_root\defaultVars\$_globalVariables\GlobalVariables\CFG\KYFD\QUEUES\defaultVars.substvar.
+2016-05-09 16:01:29.472 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\S_KYFD_FUNC_MONITORING_PUBLICATION_root\defaultVars\$_globalVariables\GlobalVariables\CFG\KYFD\QUEUES\defaultVars.substvar.
+2016-05-09 16:01:29.508 WARN  c.bbva.mmap.common.utils.FileSeeker - No ha sido posible obtener la conexion a EMS para D:\Workspace\TIBCO\DEV\GMA\datafiles\S_KYFD_FUNC_MONITORING_PUBLICATION_root\defaultVars\$_globalVariables\GlobalVariables\CFG\KYFD\QUEUES\defaultVars.substvar.
+2016-05-09 16:01:29.833 INFO  c.b.m.j.t.p.TibcoOutputProcessor - TB_KVMZ_BW_UTI_DIFUS/S_KVMZ_EA_ABACO_UTI >>> com.tibco.plugin.mapper.MapperActivity
+2016-05-09 16:01:32.739 WARN  c.b.m.j.t.p.TibcoOutputProcessor - %%GLB/MGC/DFA_SS_MGC%%
+2016-05-09 16:01:33.131 INFO  c.b.m.j.tibco.listener.TibcoListener - Formatting ESBInspector_DESKTOP-UOKULT9.xml...
+2016-05-09 16:01:33.274 INFO  c.b.m.j.tibco.listener.TibcoListener - Clearing D:\Workspace\Pool
+2016-05-09 16:01:33.905 INFO  c.b.m.j.tibco.listener.TibcoListener - COMPLETED --> ESBInspector_DESKTOP-UOKULT9.xml size is 271 Kb
+2016-05-09 16:01:33.907 INFO  o.s.b.c.l.support.SimpleJobLauncher - Job: [FlowJob: [name=tibcoServicesJob]] completed with the following parameters: [{-spring.output.ansi.enabled=always, run.id=1}] and the following status: [COMPLETED]
+2016-05-09 16:01:33.910 INFO  com.bbva.mmap.Launcher - Started Launcher in 99.631 seconds (JVM running for 100.652)
+2016-05-09 16:01:33.956 INFO  o.s.c.a.AnnotationConfigApplicationContext - Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@16bd9ed: startup date [Mon May 09 15:59:55 CEST 2016]; root of context hierarchy
+2016-05-09 16:01:33.959 INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2016-05-09 16:01:33.962 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2016-05-09 16:01:33.962 INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+2016-05-09 16:01:33.963 INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete

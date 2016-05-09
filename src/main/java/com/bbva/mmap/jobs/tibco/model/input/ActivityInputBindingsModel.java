@@ -13,6 +13,7 @@ public class ActivityInputBindingsModel {
     private ActivityInputModel activityInputModel;
     private ActivityInputBindingsRootElement activityInputBindingsRootElement;
     private ActivityInputBindingsInputElement activityInputBindingsInputElement;
+    private ActivityInputBindingsTargetServicesModel activityInputBindingsTargetServicesModel;
 
 
     @XmlElement(name = "ActivityInput")
@@ -40,5 +41,14 @@ public class ActivityInputBindingsModel {
 
     public void setActivityInputBindingsInputElement(ActivityInputBindingsInputElement activityInputBindingsInputElement) {
         this.activityInputBindingsInputElement = activityInputBindingsInputElement;
+    }
+
+    @XmlElement(name = "TargetServices")
+    public ActivityInputBindingsTargetServicesModel getActivityInputBindingsTargetServicesModel() {
+        return activityInputBindingsTargetServicesModel;
+    }
+
+    public void setActivityInputBindingsTargetServicesModel(ActivityInputBindingsTargetServicesModel activityInputBindingsTargetServicesModel) {
+        this.activityInputBindingsTargetServicesModel = activityInputBindingsTargetServicesModel;
     }
 }

@@ -317,7 +317,7 @@ public class TibcoOutputProcessor implements ItemProcessor<ProcessDefinitionMode
                 }
             } //FINAL DE SERVICIOS SS, IA Y IP
 
-            //OBTENCION DE SERVICIOS CA
+            //OBTENCION DE SERVICIOS CA Y FT
             else if (serviceName.contains("_CA_") || serviceName.contains("_FT_")){
                 if (defaultVarsFile.exists() &&  serviceNameFromModel.contains("Starter")){
                     List<ActivityModel> activityModels = processDefinitionModel.getActivityModels();
@@ -351,7 +351,6 @@ public class TibcoOutputProcessor implements ItemProcessor<ProcessDefinitionMode
                                 targetServiceId = activityModel.getActivityInputBindingsModel().getActivityInputBindingsRootElement().getActivityInputBindingsRootAdapterChannel().getTargetServiceModelIDModel().getDestinationValueOfModel().getSelect();
                             }
                             else if(serviceName.contains("_FT_")){
-                                logger.info(applicationName + " SERVICE FT >>>> " + serviceName);
                                 targetServiceId = activityModel.getActivityInputBindingsModel().getActivityInputBindingsInputElement().getActivityInputBindingsFilterAdapterElement().getTargetServiceModelIDModel().getDestinationValueOfModel().getSelect();
                             }
 
@@ -455,7 +454,42 @@ public class TibcoOutputProcessor implements ItemProcessor<ProcessDefinitionMode
                         }
                     }
                 }
-            }
+            }// FINAL DE SERVICIOS CA Y FT
+
+            //OBTENCION DE SERVICIOS EA
+            else if(serviceName.contains("_EA_")) {
+                if (defaultVarsFile.exists() && serviceNameFromModel.contains("Starter")) {
+                    List<ActivityModel> activityModels = processDefinitionModel.getActivityModels();
+
+                    //STARTER -> CONSUMIDOR
+                    for (StarterModel starterModel : starterModels) {
+                        List<StarterConfigModel> starterConfigModels = starterModel.getStarterConfigModels();
+                        for (StarterConfigModel starterConfigModel : starterConfigModels) {
+                            List<SessionAttributesModel> sessionAttributesModels = starterConfigModel.getSessionAttributesModels();
+                            for (SessionAttributesModel sessionAttributesModel : sessionAttributesModels) {
+                                String destination = getQueueName(applicationPath, sessionAttributesModel.getDestination());
+
+                                TibcoOutputActivity tibcoOutputActivity = new TibcoOutputActivity();
+                                tibcoOutputActivity.setApplication(applicationName);
+                                tibcoOutputActivity.setDestination(destination);
+                                tibcoOutputActivity.setService(serviceName);
+                                tibcoOutputActivity.setType("Consumer");
+                                tibcoOutputActivity.setDomain(domain);
+                                tibcoOutputActivity.setUuaa(uuaa);
+
+                                tibcoOutput.getTibcoOutputActivities().add(tibcoOutputActivity);
+                            }
+                        }
+                    }
+
+                    for (ActivityModel activityModel:activityModels){
+                        if (activityModel.getType().contains("MapperActivity")){
+                            logger.info(applicationName + "/" + serviceName + " >>> " + activityModel.getType());
+                            logger.info("TEST >>>> " + activityModel.getActivityInputBindingsModel().getActivityInputBindingsTargetServicesModel().getActivityInputBindingsServiceModel().getDestinationValueOfModel().getSelect());
+                        }
+                    }
+                }
+            }// FINAL DE SERVICIOS EA
         }
 
         //LO ERRORES NULLPOINTER SE OMITEN DADO QUE SON PRODUCIDOS CUANDO UN PROCESO NO TIENE STARTER, ACTIVITIES, ETC... NO SON FALLOS A TENER EN CUENTA EN ESTE CASO
