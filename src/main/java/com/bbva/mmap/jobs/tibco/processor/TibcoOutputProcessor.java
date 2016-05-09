@@ -3,6 +3,8 @@ package com.bbva.mmap.jobs.tibco.processor;
 import com.bbva.mmap.common.utils.FileSeeker;
 import com.bbva.mmap.jobs.tibco.model.configs.DefaultVarsModel;
 import com.bbva.mmap.jobs.tibco.model.configs.GlobalVariableModel;
+import com.bbva.mmap.jobs.tibco.model.configs.QueuesFileListModel;
+import com.bbva.mmap.jobs.tibco.model.configs.QueuesFileModel;
 import com.bbva.mmap.jobs.tibco.model.input.*;
 import com.bbva.mmap.jobs.tibco.model.output.TibcoOutput;
 import com.bbva.mmap.jobs.tibco.model.output.TibcoOutputActivity;
@@ -372,16 +374,45 @@ public class TibcoOutputProcessor implements ItemProcessor<ProcessDefinitionMode
                                     }
 
                                 }
-                                //File queuesFile = new File(queuesFilePath + "Queues.xml");
+                                String projectPath = System.getProperty("user.dir");
+                                File queuesFile = new File(projectPath + pathSeparator + "src" + pathSeparator + "main" + pathSeparator + "resources" + pathSeparator + queuesFilePath + "Queues.xml");
 
 
                                 /// ONLY FOR TESTING!!!!!!
-                                String projectPath = System.getProperty("user.dir");
-                                File queuesFile = new File(projectPath + pathSeparator + "src" + pathSeparator + "main" + pathSeparator + "resources" + pathSeparator + "de" + pathSeparator + "kyrs" + pathSeparator + "online" + pathSeparator + "multipais" + pathSeparator + "multicanal" + pathSeparator + "cfg" + pathSeparator + "entorno" + pathSeparator + "Queues.xml");
+                                //String projectPath = System.getProperty("user.dir");
+                                //File queuesFile = new File(projectPath + pathSeparator + "src" + pathSeparator + "main" + pathSeparator + "resources" + pathSeparator + "de" + pathSeparator + "kyrs" + pathSeparator + "online" + pathSeparator + "multipais" + pathSeparator + "multicanal" + pathSeparator + "cfg" + pathSeparator + "entorno" + pathSeparator + "Queues.xml");
                                 ////////////////////////////////
 
                                 if (queuesFile.exists()){
+                                    if (queuesFile.getCanonicalPath().contains("kygb")){
+                                        String[] targetServiceIdSplit = targetServiceId.split("/");
+                                        targetServiceId = targetServiceIdSplit[targetServiceIdSplit.length-1];
+                                    }
+                                    List<String> queuesFileContent = FileUtils.readLines(queuesFile);
+                                    for (String line:queuesFileContent){
+                                        if(line.contains(targetServiceId)){
+                                            String[] lineSplit = line.split(">");
+                                            String destination = lineSplit[1];
+                                            destination = destination.replace("</eai:Destination","");
 
+                                            if (destination.contains("%ENV%")){
+                                                destination = destination.replace("%ENV%",queuesEnv);
+                                            }
+
+                                            TibcoOutputActivity tibcoOutputActivity = new TibcoOutputActivity();
+                                            tibcoOutputActivity.setApplication(applicationName);
+                                            tibcoOutputActivity.setDestination(destination);
+                                            tibcoOutputActivity.setService(serviceName);
+                                            tibcoOutputActivity.setType("Producer");
+                                            tibcoOutputActivity.setDomain(domain);
+                                            tibcoOutputActivity.setUuaa(uuaa);
+
+                                            tibcoOutput.getTibcoOutputActivities().add(tibcoOutputActivity);
+
+
+
+                                        }
+                                    }
                                 }
                             }
                             catch (JAXBException ex){
