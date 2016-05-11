@@ -1,0 +1,326 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<eai:QueuesCacheList xmlns:eai = "http://www.bbva.com/EAIFramework" xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation = "http://www.bbva.com/EAIFramework ../SharedResources/Schemas/XSD/InternalArchitecture/InternalArchitectureData.xsd"> 
+
+<!-- STAR -->
+	<!-- colas de envio del filtro para los AE de STAR cabeceras, flujos y fixing -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KQNT_EA_ST_TRADES">GLB.BBVA.GMA.%ENV%.KQNT.STAR.OPE_EXP_ADAPTER.INSERT.TRADE</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KQNT_EA_ST_FLOWS">GLB.BBVA.GMA.%ENV%.KQNT.STAR.FLUJOS_EXP_ADAPTER.INSERT.FLOWS</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KQNT_EA_ST_FIXING">GLB.BBVA.GMA.%ENV%.KQNT.STAR.OPE_EXP_ADAPTER.INSERT.FIXING</eai:Destination>
+	<!--Enrutamiento al GTW de Routing -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KQNT_GW_STAR_GTW">GLB.BBVA.GMA.%ENV%.KQNT.GW.ROUTING.INSERT</eai:Destination>
+	<!--Enrutamiento al CEP de Routing -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KQNT_CP_CROSS_ROUT">GLB.BBVA.GMA.%ENV%.KQNT.CEP.ROUTING.INPUT.QUEUE</eai:Destination>
+	<!--EPUB Eventos Funcionales -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KQNT_EP_ST_EVTFUNC">GLB.BBVA.GMA.%ENV%.KQNT.STAR.EP.EVENTFUNCTIONAL.INPUT</eai:Destination>
+	<!--Colas del Filter de STAR -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KQNT_FT_FILTHEADER">GLB.BBVA.GMA.%ENV%.KQNT.STAR.OPE_EXP_ADAPTER.INSERT</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KQNT_FT_FILTFLOWS">GLB.BBVA.GMA.%ENV%.KQNT.STAR.FLUJOS_EXP_ADAPTER.INSERT</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KQNT_FT_FILTFIXING">GLB.BBVA.GMA.%ENV%.KQNT.STAR.FIX_EXP_ADAPTER.INSERT</eai:Destination>
+
+<!-- MUREX -->
+	<!-- colas de envio del filtro para los AE de MUREX cabeceras, flujos y fixing -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KLMX_EA_MX_FLOWS">GLB.BBVA.GMA.%ENV%.KLMX.MX.FLUJOS_EXP_ADAPTER.FLOWS</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KLMX_EA_MX_TRADES">GLB.BBVA.GMA.%ENV%.KLMX.MX.TRADES_EXP_ADAPTER.TRADES</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KLMX_EA_MX_FIXING">GLB.BBVA.GMA.%ENV%.KLMX.MX.FIXING_EXP_ADAPTER.FIXING</eai:Destination>
+	<!-- Adaptador de importacion Murex STP-->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KLMX_IA_MX_TRADES">GLB.BBVA.GMA.%ENV%.KLMX.MX.IA.TRADES.INSERT</eai:Destination>
+	<!-- Adaptador de importacion Murex CVA -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KLMX_IA_MX_HEADER">GLB.BBVA.GMA.%ENV%.MX.TRADES.ADD</eai:Destination>
+	<!--Enrutamiento al GTW de Routing -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KLMX_GW_MUREX_GTW">GLB.BBVA.GMA.%ENV%.KLMX.GW.ROUTING.INSERT</eai:Destination>
+	<!--Enrutamiento al CEP de Routing -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KMLX_CP_CROSS_ROUT">GLB.BBVA.GMA.%ENV%.KLMX.CEP.ROUTING.INPUT.QUEUE</eai:Destination>
+	<!--EPUB Eventos Funcionales -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KLMX_EP_MX_EVTFUNC">GLB.BBVA.GMA.%ENV%.KLMX.MUREX.EP.EVENTFUNCTIONAL.INPUT</eai:Destination>
+	<!--Colas del Filter de MUREX -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KLMX_FT_MX_TRADES">GLB.BBVA.GMA.%ENV%.KLMX.MX_HEADER_EVENT</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KLMX_FT_MX_FLOWS">GLB.BBVA.GMA.%ENV%.KLMX.MX_BODY_EVENT</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KLMX_FT_MX_FIXING">GLB.BBVA.GMA.%ENV%.KLMX.MX_FIXING_EVENT</eai:Destination>
+	<!--ACK MUREX -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KLMX_IA_MX_ACK">GLB.BBVA.GMA.%ENV%.KLMX.MX.IA.ACK.INSERT</eai:Destination>
+
+<!-- GTR -->
+	<!-- cola de envio del AI de GTR cabeceras y flujos -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYGY_IA_GTR_FLOWS">GLB.BBVA.GMA.%ENV%.GTR.FLOWS.INSERT</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYGY_IA_GTR_HEADER">GLB.BBVA.GMA.%ENV%.GTR.HEADERS.INSERT</eai:Destination>
+	<!-- Servicio simple de consulta a GTR -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYGY_SS_GTR_PTY">GLB.BBVA.GMA.%ENV%.KYGY.GTR.SS.TRADES</eai:Destination>
+
+<!-- DBS -->
+	<!-- cola de envio del AI de DBS cabeceras -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYGM_IA_DBS_HEADER">GLB.BBVA.GMA.%ENV%.KYGM.DBS.AI.HEADERS.INSERT</eai:Destination>
+	<!-- Datos Estaticos -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYGM_IA_CCY">GLB.BBVA.GMA.%ENV%.KYGM.DBS.AI.CURRENCY.PUBLISH</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYGM_IA_CCYP">GLB.BBVA.GMA.%ENV%.KYGM.DBS.AI.CURRENCYPAIRS.PUBLISH</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYGM_IA_CALEND">GLB.BBVA.GMA.%ENV%.KYGM.DBS.AI.CALENDAR.PUBLISH</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYGM_IA_PARTY">GLB.BBVA.GMA.%ENV%.KYGM.DBS.AI.PARTY.PUBLISH</eai:Destination>
+
+<!-- EMIR -->
+	<!-- colas de envio del AI de EMIR cabeceras y cancelaciones -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KVMZ_IA_EMIR">GLB.BBVA.GMA.%ENV%.KVMZ.DFA.EMIR_IMP_ADAPTER.INSERT</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KVMZ_IA_EMIR_CANC">GLB.BBVA.GMA.%ENV%.KVMZ.DFA.EMIR_IMP_ADAPTER.SNP_CANC</eai:Destination>
+		<!-- colas de envio a los adpatadores de importacion para estructuras y cancelacion de estructuras EMIR -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KVMZ_IA_STR">GLB.BBVA.GMA.%ENV%.KVMZ.STR_IMP_ADAPTER.INSERT</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KVMZ_IA_STRC">GLB.BBVA.GMA.%ENV%.KVMZ.STRC_IMP_ADAPTER.INSERT</eai:Destination>
+	<!-- Publicador EMIR -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KVMZ_EP_EMIR_PUB">GLB.BBVA.GMA.%ENV%.KVMZ.EMIR.PUBLICATION.ROUTE</eai:Destination>
+	<!-- AUDITORIA FUNCIONAL EMIR (Normativo Europa)-->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KVMZ_IP_FUN_MONIT">GLB.BBVA.GMA.%ENV%.KVMZ.EMIR.MONITORING.INSERT</eai:Destination>
+
+
+<!-- RDR -->
+	<!-- Servicio compuesto de consulta a RDR -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_CS_REFCACHE">GLB.BBVA.GMA.%ENV%.KYRS.RDR.CS.REFCACHE.REQUEST</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_CS_REFDATA">GLB.BBVA.GMA.%ENV%.KYRS.RDR.CS.REFDATA.REQUEST</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_CS_PARTY">GLB.BBVA.GMA.%ENV%.RDR.CS.PARTY.GET</eai:Destination>
+	<!-- colas de envio para los SS de RDR -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_SS_AGREEMENT">GLB.BBVA.GMA.%ENV%.KYRS.RDR.SS.AGREEMENT.REQUEST</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_SS_CAL_JMS">GLB.BBVA.GMA.%ENV%.KYRS.RDR.SS.CALENDAR.REQUEST</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_SS_CONFIRM">GLB.BBVA.GMA.%ENV%.KYRS.RDR.SS.CONFIRMATIONS.REQUEST</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_SS_CONTACT">GLB.BBVA.GMA.%ENV%.KYRS.RDR.SS.CONTACT.REQUEST</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_SS_DICTIONARY">GLB.BBVA.GMA.%ENV%.KYRS.RDR.SS.DICTIONARY.REQUEST</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_SS_INDEX">GLB.BBVA.GMA.%ENV%.KYRS.RDR.SS.INDEX.REQUEST</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_SS_MANDATE">GLB.BBVA.GMA.%ENV%.KYRS.RDR.SS.DEALMANDATES.REQUEST</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_SS_PARTY_JMS">GLB.BBVA.GMA.%ENV%.KYRS.RDR.SS.PARTY.REQUEST</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_SS_SEC_JMS">GLB.BBVA.GMA.%ENV%.KYRS.RDR.SS.SECURITIES.REQUEST</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_SS_SETTLEMENT">GLB.BBVA.GMA.%ENV%.KYRS.RDR.SS.SETTLEMENT.REQUEST</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_SS_SHIFTER">GLB.BBVA.GMA.%ENV%.KYRS.RDR.SS.SHIFTER.REQUEST</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_SS_TENOR">GLB.BBVA.GMA.%ENV%.RDR.SS.TENOR.GET</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_SS_CALENDAR">GLB.BBVA.GMA.%ENV%.RDR.SS.CALENDAR.GET</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_SS_SECURITIES">GLB.BBVA.GMA.%ENV%.RDR.SS.SECURITIES.GET</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_SS_COUNTRY">GLB.BBVA.GMA.%ENV%.KYRS.RDR.SS.COUNTRY.REQUEST</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_SS_PARTY">GLB.BBVA.GMA.%ENV%.RDR.SS.PARTY.GET</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_SS_DEALTYPE">GLB.BBVA.GMA.%ENV%.KYRS.RDR.SS.DEALTYPES.REQUEST</eai:Destination>
+	<!-- Colas de importacion para los ACK -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_IA_RDR_PARTY">GLB.BBVA.GMA.%ENV%.KYRS.RDR.AI.PARTY.ACK</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_IA_RDR_CONF">GLB.BBVA.GMA.%ENV%.KYRS.RDR.AI.CONFIRMATIONS.ACK</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_IA_RDR_SI">GLB.BBVA.GMA.%ENV%.KYRS.RDR.AI.SETTLEMENT.ACK</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_IA_RDR_CAL">GLB.BBVA.GMA.%ENV%.KYRS.RDR.AI.CALENDAR.ACK</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_IA_RDR_AGR">GLB.BBVA.GMA.%ENV%.KYRS.RDR.AI.AGREEMENT.ACK</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_IA_RDR_CURR">GLB.BBVA.GMA.%ENV%.KYRS.RDR.AI.SECURITY.ACK</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_IA_RDR_CURP">GLB.BBVA.GMA.%ENV%.KYRS.RDR.AI.SECURITY.ACK</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_IA_RDR_PORT">GLB.BBVA.GMA.%ENV%.KYRS.RDR.AI.PORTFOLIO.ACK</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_IA_RDR_INDX">GLB.BBVA.GMA.%ENV%.KYRS.RDR.AI.SECURITY.ACK</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_IA_RDR_SEC">GLB.BBVA.GMA.%ENV%.KYRS.RDR.AI.SECURITY.ACK</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_IA_RDR_COUN">GLB.BBVA.GMA.%ENV%.KYRS.RDR.AI.COUNTRY.ACK</eai:Destination>
+	<!-- colas de envio de EPUB para los Errores -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_EP_RDR_NACK">GLB.BBVA.GMA.%ENV%.KYRS.RDR.EP.NACK.PUBLISH</eai:Destination>
+	<!-- colas de envio entre RDR y MGC -->
+	<!-- <eai:Destination DestinationType = "Queue" ServiceId = "S_KYGM_IA_MGC_PARTY">GLB.BBVA.GMA.%ENV%.KYGM.MGC.AI.PARTY.INSERT</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_IA_PARTY_MGC_ACK">GLB.BBVA.GMA.%ENV%.KYGM.MGC.PARTY.MQ_ADFAPTER_ACK</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_SS_CLNT_PARTY">GLB.BBVA.GMA.%ENV%.KYGM.CLNT.AI.PARTY.INSERT</eai:Destination> -->
+	<!-- colas de envio para los Errores en Exportacion -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_IA_PUBERROR">GLB.BBVA.GMA.%ENV%.KYRS.RDR.AI.ERROR.PUBLISH</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_IP_RDR_NACK">GLB.BBVA.GMA.%ENV%.KYRS.RDR.IP.NACK.PUBLISH</eai:Destination>
+	<!-- EA PUBLISH -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_EA_PUBLISH">GLB.BBVA.GMA.%ENV%.KYRS.RDR.EA.PUBLISH</eai:Destination>
+	
+<!-- CALYPSO -->
+	<!-- colas de envio del AI de CALYPSO cabeceras y fixing-->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYFK_IA_CUD_HEADER">GLB.BBVA.GMA.%ENV%.KYFK.CALYPSO.AI.HEADERS.INSERT</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYFK_IA_CUD_FLOWS">GLB.BBVA.GMA.%ENV%.KYFK.CALYPSO.AI.FLOWS.INSERT</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYFK_IA_CUD_FIXING">GLB.BBVA.GMA.%ENV%.KYFK.CALYPSO.AI.FIXING.INSERT</eai:Destination>
+	<!-- colas de importacion de la publicacion de RDR (CAMEL) -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYFK_IA_CUD_CALEND">GLB.BBVA.GMA.%ENV%.KYFK.CALYPSO.AI.CALENDAR.PUBLISH</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYFK_IA_CUD_PARTY">GLB.BBVA.GMA.%ENV%.KYFK.CALYPSO.AI.PARTY.PUBLISH</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYFK_IA_CUD_SECUR">GLB.BBVA.GMA.%ENV%.KYFK.CALYPSO.AI.SECURITY.PUBLISH</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYFK_IA_CUD_CONF">GLB.BBVA.GMA.%ENV%.KYFK.CALYPSO.AI.CONTACT_CONFIRMATION.PUBLISH</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYFK_IA_CUD_SDI">GLB.BBVA.GMA.%ENV%.KYFK.CALYPSO.AI.SETTLEMENT_INSTRUCTIONS.PUBLISH</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYFK_IA_CUD_INDEX">GLB.BBVA.GMA.%ENV%.KYFK.CALYPSO.AI.INDEX.PUBLISH</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYFK_IA_CUD_AGREE">GLB.BBVA.GMA.%ENV%.KYFK.CALYPSO.AI.LEGAL_AGREEMENT.PUBLISH</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYFK_IA_CUD_PORTF">GLB.BBVA.GMA.%ENV%.KYFK.CALYPSO.AI.BOOK.PUBLISH</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYFK_IA_CUD_COUNT">GLB.BBVA.GMA.%ENV%.KYFK.CALYPSO.AI.COUNTRY.PUBLISH</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYFK_IA_CUD_CCY">GLB.BBVA.GMA.%ENV%.KYFK.CALYPSO.AI.CURRENCY.PUBLISH</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYFK_IA_CUD_CCYP">GLB.BBVA.GMA.%ENV%.KYFK.CALYPSO.AI.CURRENCYPAIRS.PUBLISH</eai:Destination>
+	<!--colas para importar los mensajes de ACK de trigger(confirmaciones) y notificaciones-->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYFK_IA_TRIGGER">GLB.BBVA.GMA.%ENV%.KYFK.CALYPSO.IA.TRIGGER.ACK</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYFK_IA_NOTIF">GLB.BBVA.GMA.%ENV%.KYFK.CALYPSO.IA.NOTIFICATION.ACK</eai:Destination>
+	<!--colas para gestion de errores de trigger(confirmaciones) y notificaciones-->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYFK_EP_SERV_NACK">GLB.BBVA.GMA.%ENV%.KYFK.CALYPSO.EP.SERVICE.NACK</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYFK_IP_SERV_NACK">GLB.BBVA.GMA.%ENV%.KYFK.CALYPSO.IP.SERVICE.NACK</eai:Destination>
+	<!-- Consumidor de los servicios de ACK -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KLYO_AP_S_ACK">GLB.BBVA.GMA.%ENV%.KLYO.AP.S_CEP</eai:Destination>
+	<!-- EA Acks Calypso -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYFK_EA_CUD_HDRACK">GLB.BBVA.CIB.%ENV%.KYLO.DEAL.OUT</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYFK_EA_CUD_FIXACK">GLB.BBVA.GMA.%ENV%.KYFK.CALYPSO.IA.FIXING.OUT</eai:Destination>
+	<!--EPUB Eventos Funcionales -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYFK_EP_CUD_EVTFUN">GLB.BBVA.GMA.%ENV%.KYFK.CALYPSO.EP.EVENTFUNCTIONAL.INPUT</eai:Destination>
+
+<!-- COHERENCE -->
+	<!-- colas de envio AI de COHERENCE -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRX_IA_COHERENCE">GLB.BBVA.GMA.%ENV%.KYKK.COHERENCE.AI.REFERENCEDATA.PUBLISH</eai:Destination>
+	<!-- Servicio simple de acceso a Cache-->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYKK_SS_GETDATA">GLB.BBVA.GMA.%ENV%.KYKK.CACHE.SS.GETDATA.REQUEST</eai:Destination>
+
+<!-- SCRITTURA -->
+	<!-- colas de envio del AI de SCRITTURA cabeceras y flujos-->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRX_IA_SCR_FLOWS">GLB.BBVA.GMA.%ENV%.KYRX.SCR.AI.FLOWS.INSERT</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRX_IA_SCR_HEADER">GLB.BBVA.GMA.%ENV%.KYRX.SCR.AI.TRADES.INSERT</eai:Destination>
+	<!--colas para importar los mensajes de Calypso trigger(confirmaciones) y notificaciones-->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRX_IA_TRIGGER">GLB.BBVA.GMA.%ENV%.KYRX.SCR.IA.TRIGGER</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRX_IA_NOTIF">GLB.BBVA.GMA.%ENV%.KYRX.SCR.IA.NOTIFICATION</eai:Destination>
+	<!-- colas de envio entre CA-Scrittura y CS-Scrittura (Orquestador)-->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRX_CS_SCR_RDR">GLB.BBVA.GMA.%ENV%.KYRX.SCR.CS.REFDATA.GET</eai:Destination>
+	<!-- colas de envio del exortador de Scrittura a DFA -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRX_REPORT">GLB.BBVA.CIB.%ENV%.DFA.S_KYFD_START_GATEWAY</eai:Destination>
+	<!-- colas de envio al EPUB de SCRITTURA, MoF -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRX_EP_SCR_EVTFUN">GLB.BBVA.GMA.%ENV%.KYRX.SCRITTURA.EP.EVENTFUNCTIONAL.INPUT</eai:Destination>
+	
+<!-- BOTWEB -->
+	<!-- Servicio Simple Gestion Liquidez BOTWEB -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYOW_SS_LIQ_MGMNT">GLB.BBVA.GMA.%ENV%.KYOW.LIQ_MANAGEMENT</eai:Destination>
+	<!-- Servicio Compuesto de Liquidaciones -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYOT_CS_SETTLEMENT">GLB.BBVA.GMA.%ENV%.KYOT.SC.SETTLEMENT</eai:Destination>
+	<!-- Servicio Simple Liquidaciones: Consulta SPEI -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYOT_SS_QUERYSPEI">GLB.BBVA.GMA.%ENV%.KYOT.SPEI.QUERY</eai:Destination>
+	<!-- Servicio Simple Liquidaciones: Pago SPEI -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYOT_SS_PAYSPEI">GLB.BBVA.GMA.%ENV%.KYOT.SPEI.PAYMENT</eai:Destination>
+	<!-- Servicio Simple Liquidaciones: Devolucion SPEI -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYOT_SS_RETSPEI">GLB.BBVA.GMA.%ENV%.KYOT.SPEI.REJECTION</eai:Destination>
+	<!-- Servicio Simple Liquidaciones: Abono BG -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYOT_SS_PAYBG">GLB.BBVA.GMA.%ENV%.KYOT.BG.PAYMENT</eai:Destination>
+	<!-- Servicio Simple Liquidaciones: Cargo BG -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYOT_SS_GETBG">GLB.BBVA.GMA.%ENV%.KYOT.BG.CHARGE</eai:Destination>
+	<!-- Servicio Simple Gestion Liquidez AMIGA -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYOV_SS_LIQ_MGMNT">GLB.BBVA.GMA.%ENV%.KYOV.AMIGA.LIQ_MANAGEMENT</eai:Destination>
+
+<!-- REPORTING (UTI)-->
+	<!-- colas de envio servicio simple del UTI -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYGI_SS_RE_UTI">GLB.BBVA.GMA.%ENV%.KYGI.SS.RE.UTI</eai:Destination>
+	<!-- colas de envio de los AI del UTI -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KVMZ_IA_MX_UTI">GLB.BBVA.GMA.%ENV%.KVMZ.IA.MUREX_IMP_ADAPTER_UTI.INSERT</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KVMZ_IA_ST_UTI">GLB.BBVA.GMA.%ENV%.KVMZ.IA.STAR_IMP_ADAPTER_UTI.INSERT</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KVMZ_IA_ABACO_UTI">GLB.BBVA.GMA.%ENV%.KVMZ.IA.ABACO_IMP_ADAPTER_UTI.INSERT</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYFK_IA_UTI">GLB.BBVA.GMA.%ENV%.KYFK.IA.CALYPSO_IMP_ADAPTER_UTI.INSERT</eai:Destination>
+
+<!-- Regulatorio Canada-->
+	<!-- Cola del AI de EYCA-->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EYCA_IA_ARCE">GLB.BBVA.GMA.%ENV%.EYCA.IMP_ADAPTER.INSERT</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EYCA_IA_ARCE_RT">GLB.BBVA.GMA.%ENV%.EYCA.IMP_ADAPTER_RT.INSERT</eai:Destination>
+	<!-- AUDITORIA FUNCIONAL ARCE (Normativo Canada)-->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EYCA_IP_FUN_MONIT">GLB.BBVA.GMA.%ENV%.EYCA.MONITORING.INSERT</eai:Destination>
+	
+<!-- CVA -->
+	<!-- cola del AI de CVA -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYFO_IA_MX_HEADER">GLB.BBVA.GMA.%ENV%.MX.TRADES.ADD</eai:Destination>
+
+<!-- MDS -->
+	<!-- Entrada al Adaptador Importacion ACK MDS -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYNM_IA_CUD_ACK">GLB.BBVA.GMA.%ENV%.KYNM.IA_CUD_ACK</eai:Destination>
+	<!-- Servicios de MDS -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYNM_SS_GETMDS">GLB.BBVA.GMA.%ENV%.KYNM.MDS.CA.REQUEST</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYNM_SS_SETMDS">GLB.BBVA.GMA.%ENV%.KYNM.MDS.CA.INSERT</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYNM_SS_GETPROP">GLB.BBVA.GMA.%ENV%.KYNM.MDS.CA.GETPROPERTIES</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYNM_SS_GETSNAP">GLB.BBVA.GMA.%ENV%.KYNM.MDS.CA.GETSNAPSHOT</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYNM_SS_ENTITLEMEN">GLB.BBVA.GMA.%ENV%.KYNM.MDS.ENTITLEMENT.REQUEST</eai:Destination>
+	<!-- Entrada al Adaptador Importacion MDS Calypso -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYFK_IA_CUD_MDS">GLB.BBVA.GMA.%ENV%.KYFK.CALYPSO.MD_IMP_ADAPTER.INSERT</eai:Destination>
+	<!-- Entrada al Adaptador Importacion MDS DBS -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYGM_IA_DBS_MDS">GLB.BBVA.GMA.%ENV%.KYGM.DBS.AI.MDS.INSERT</eai:Destination>
+	<!-- Entrada al Adaptador Importacion MDS Calypso CR -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_ECFO_IA_CUD_MDS">GLB.BBVA.GMA.%ENV%.ECFO.CR.AI.MDS.INSERT</eai:Destination>
+	<!-- Entrada al Adaptador Importacion MDS MSC -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYFK_IA_MSC_MDS">GLB.BBVA.GMA.%ENV%.KYFK.CALYPSO.IA.MSC</eai:Destination>
+	<!-- Routing MDS Datos Mercados -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYNM_GW_INSERTMD">GLB.BBVA.GMA.%ENV%.KYNM.GW.ROUTING.INSERTMD</eai:Destination>
+	<!-- RIMS -->		
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EERM_IA_RIMS_MDS">GLB.BBVA.GMA.%ENV%.EERM.AI.MDS.INSERT</eai:Destination>	
+	<!-- VOLATILITY -->		
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EFVM_IA_VOLMAN">GLB.BBVA.GMA.%ENV%.EFVM.IA.VOLATILITY.MANAGER</eai:Destination>
+	<!-- OneBank -->		
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYOB_IA_OBANK_MDS">GLB.BBVA.GMA.%ENV%.KYOB.AI.MDS.INSERT</eai:Destination>
+
+<!-- CALYPSO CREDIT-REPO-->
+	<!-- colas de envio al expotador de CR-->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_ECFO_EA_CR_TRADES">GLB.BBVA.GMA.%ENV%.ECFO.CR.EA.PRETRADES.INSERT</eai:Destination>
+	<!-- colas de envio al importador de CR-->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_ECFO_IA_CR_TRADES">GLB.BBVA.GMA.%ENV%.ECFO.CR.IA.PRETRADES.ACK</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_ECFO_IA_CUD_SEC">GLB.BBVA.GMA.%ENV%.ECFO.CR.AI.SECURITY.INSERT</eai:Destination>
+	<!-- Colas EPUB/IPUB CALYPSO_CR OPERACIONES -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_ECFO_EP_CR_OPER">GLB.BBVA.GMA.%ENV%.ECFO.CR.EP.NACK.PRETRADES</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_ECFO_IP_CR_OPER">GLB.BBVA.GMA.%ENV%.ECFO.CR.IP.NACK.PRETRADES</eai:Destination>
+	<!-- Colas Gateway Routing CALYPSO_CR Trades -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_ECFO_GW_CR_TRADES">GLB.BBVA.GMA.%ENV%.ECFO.CR.GW.ROUTING.PRETRADES</eai:Destination>
+	<!-- Entrada al Adaptador Importacion ACK Asset Control -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_IA_SEC_ACK">GLB.BBVA.GMA.%ENV%.ECFO.CR.AI.SECURITY.ACK</eai:Destination>
+	<!-- Entrada al EPUB Asset Control -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_ECFO_EP_SEC_NACK">GLB.BBVA.GMA.%ENV%.ECFO.CR.EP.NACK.SECURITIES</eai:Destination>
+	<!-- Entrada al IPUB Asset Control -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_ECFO_IP_SEC_NACK">GLB.BBVA.GMA.%ENV%.ECFO.CR.IP.NACK.SECURITIES</eai:Destination>
+	<!-- colas de envio para la publicacion de RDR a Calypso CR -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_ECFO_IA_CUD_CALEND">GLB.BBVA.GMA.%ENV%.ECFO.CR.AI.CALENDAR.PUBLISH</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_ECFO_IA_CUD_PARTY">GLB.BBVA.GMA.%ENV%.ECFO.CR.AI.PARTY.PUBLISH</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_ECFO_IA_CUD_SECUR">GLB.BBVA.GMA.%ENV%.ECFO.CR.AI.SECURITY.PUBLISH</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_ECFO_IA_CUD_CONF">GLB.BBVA.GMA.%ENV%.ECFO.CR.AI.CONTACT_CONFIRMATION.PUBLISH</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_ECFO_IA_CUD_SDI">GLB.BBVA.GMA.%ENV%.ECFO.CR.AI.SETTLEMENT_INSTRUCTIONS.PUBLISH</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_ECFO_IA_CUD_INDEX">GLB.BBVA.GMA.%ENV%.ECFO.CR.AI.INDEX.PUBLISH</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_ECFO_IA_CUD_AGREE">GLB.BBVA.GMA.%ENV%.ECFO.CR.AI.LEGAL_AGREEMENT.PUBLISH</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_ECFO_IA_CUD_PORTF">GLB.BBVA.GMA.%ENV%.ECFO.CR.AI.BOOK.PUBLISH</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_ECFO_IA_CUD_COUNT">GLB.BBVA.GMA.%ENV%.ECFO.CR.AI.COUNTRY.PUBLISH</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_ECFO_IA_CUD_CCY">GLB.BBVA.GMA.%ENV%.ECFO.CR.AI.CURRENCY.PUBLISH</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_ECFO_IA_CUD_CCYP">GLB.BBVA.GMA.%ENV%.ECFO.CR.AI.CURRENCYPAIRS.PUBLISH</eai:Destination>
+	<!-- colas de envio para el AI de RTCE para Calypso CR-->
+	<eai:Destination DestinationType="Queue" ServiceId="S_EYSJ_IA_RE_POSREP">GLB.BBVA.RSK.%ENV%.RTCE.OPE_IMP_ADAPTER.INSERT.POSREP</eai:Destination>
+	
+<!-- DIALOGO -->
+	<!-- colas de envio del AI de DIALOGO -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_TEMB_IA_DI_TRADE">GLB.BBVA.CIB.%ENV%.DIALOGO.OPE_IMP_ADAPTER.INSERT.TRADE</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_TEMB_IA_DI_FLOW">GLB.BBVA.CIB.%ENV%.DIALOGO.OPE_IMP_ADAPTER.INSERT.FLOW</eai:Destination>
+
+<!-- SUMMIT -->
+	<!-- colas de envio del AI de SUMMIT -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KETB_IA_SMT_FIXING">GLB.BBVA.GMA.%ENV%.KETB.SUMMIT.AI.FIXINGS.INSERT</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KETB_IA_SMT_FLOWS">GLB.BBVA.GMA.%ENV%.KETB.SUMMIT.AI.FLOWS.INSERT</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KETB_IA_SMT_TRADES">GLB.BBVA.GMA.%ENV%.KETB.SUMMIT.AI.TRADES.INSERT</eai:Destination>
+
+<!-- BAC-TRADER CHILE -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KQZK_IA_BAC_FIXING">GLB.BBVA.GMA.%ENV%.KQZK.BAC.AI.FIXINGS.INSERT</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KQZK_IA_BAC_FLOWS">GLB.BBVA.GMA.%ENV%.KQZK.BAC.AI.FLOWS.INSERT</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KQZK_IA_BAC_TRADES">GLB.BBVA.GMA.%ENV%.KQZK.BAC.AI.TRADES.INSERT</eai:Destination>
+	
+<!-- Regulatorio Hong Kong -->
+	<!-- Servicio Simple trader HKMA-->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EYHK_SS_HKTRADER">GLB.BBVA.GMA.%ENV%.EYHK.ELARA.SS.PSOFT.REQUEST</eai:Destination>
+	<!-- Servicio Importador HKMA-->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EYHK_IA_HKMA">GLB.BBVA.GMA.%ENV%.EYHK.IA.HKMA_IMP_ADAPTER.INSERT</eai:Destination>
+<!-- MONITORIZACIONN FUNCIONAL HKMA (Normativo Hong Kong)-->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EYHK_IP_FUN_MONIT">GLB.BBVA.GMA.%ENV%.EYHK.HKMA.MONITORING.INSERT</eai:Destination>
+
+	
+<!-- RDR-FX -->	
+	<!-- colas de envio para los subprocesos de RDR-GLOBALNET-->
+	<eai:Destination DestinationType="Queue" ServiceId="S_KYUJ_CS_RDUSERINF">GLB.BBVA.GMA.%ENV%.KYUJ.RDUSERINF.PROCESS</eai:Destination>
+	<eai:Destination DestinationType="Queue" ServiceId="S_KYUJ_SS_RDUSERINF">GLB.BBVA.GMA.%ENV%.KYUJ.SS.RDUSERINF</eai:Destination>
+	
+<!-- TEST-ROUTING -->		
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EYFW_IA_CHKROUT">GLB.BBVA.GMA.%ENV%.EYFW.IA.CHKROUT_IMP_ADAPTER.INSERT</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EYFW_IA_CHKRTST">GLB.BBVA.GMA.%ENV%.EYFW.IA.CHKRTST_IMP_ADAPTER.INSERT</eai:Destination>	
+
+<!-- MoF -->		
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EMFU_IP_MONFUNBE">GLB.BBVA.GMA.%ENV%.EMFU.IP.MONITFUNCIONAL.INPUT</eai:Destination>	
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EMFU_SS_ORDRMGMT">GLB.BBVA.GMA.%ENV%.EMFU.SS.MONITFUNCIONAL.ORDRMGMT.GET</eai:Destination>
+
+<!-- MiFID -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KMPD_SS_MIFIDGET">GLB.BBVA.GMA.%ENV%.KMPD.ESB.MIFID.GET</eai:Destination>
+	
+<!-- QuotePad -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EQPD_IA_QPAD_PARTY">GLB.BBVA.GMA.%ENV%.EQPD.QPAD.AI.PARTY.PUBLISH</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EQPD_IA_QPAD_CONF">GLB.BBVA.GMA.%ENV%.EQPD.QPAD.AI.CONFIRMATION.PUBLISH</eai:Destination>
+
+<!-- Telemaco -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_ETMC_IA_TLMC_PARTY">GLB.BBVA.GMA.%ENV%.ETMC.TELEMACO.AI.PARTY.PUBLISH</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_ETMC_IA_TLMC_CONF">GLB.BBVA.GMA.%ENV%.ETMC.TELEMACO.AI.CONFIRMATION.PUBLISH</eai:Destination>
+	
+<!-- MMSR -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EYMK_IA_MMSR">GLB.BBVA.GMA.%ENV%.EYMK.MMSR_IMP_ADAPTER.INSERT</eai:Destination>
+	<!-- AUDITORIA FUNCIONAL MMSR (Normativo Money Market)-->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EYMK_IP_FUN_MONIT">GLB.BBVA.GMA.%ENV%.EYMK.MONITORING.ROUTE</eai:Destination>
+
+<!-- 4SIGHT -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EYFS_GW_4S_GTW">GLB.BBVA.GMA.%ENV%.EYFS.FS.GW.ROUTING.INSERT</eai:Destination>
+	<!--EPUB Eventos Funcionales -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EYFS_EP_4S_EVTFUNC">GLB.BBVA.GMA.%ENV%.EYFS.FS.EP.EVENTFUNCTIONAL.INPUT</eai:Destination>
+	
+	
+</eai:QueuesCacheList>
+

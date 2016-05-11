@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eai:QueuesCacheList xmlns:eai = "http://www.bbva.com/EAIFramework" xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation = "http://www.bbva.com/EAIFramework ../SharedResources/Schemas/XSD/InternalArchitecture/InternalArchitectureData.xsd"> 
+
+	<!-- IMPORTADORES/EXPORTADORES ALTAS/MODIFICACIONES -->
+
+	<!-- colas RTCE - STAR -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYSX_EA_ST_POSREP">GLB.BBVA.RSK.DE.STAR.OPE_EXP_ADAPTER.INSERT.POSREP</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYSX_IA_ST_TRARES">GLB.BBVA.RSK.DE.STAR.OPE_IMP_ADAPTER.INSERT.TRARES</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYSX_IA_ST_RFARES">GLB.BBVA.RSK.DE.KYSX.OPE_IMP_ADAPTER.INSERT.RFARES</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYSX_IA_ST_ERROR">GLB.BBVA.RSK.DE.STAR.OPE_IMP_ADAPTER.INSERT.ERROR</eai:Destination>
+
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EYSJ_EA_RE_TRARES">GLB.BBVA.RSK.DE.RTCE.OPE_EXP_ADAPTER.INSERT.TRARES</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EYSJ_IA_RE_POSREP">GLB.BBVA.RSK.DE.RTCE.OPE_IMP_ADAPTER.INSERT.POSREP</eai:Destination>
+
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYSX_EP_ST_OPER">GLB.BBVA.RSK.DE.KYSX.EP.ACK.OPERERROR</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYSX_IP_ST_OPER">GLB.BBVA.RSK.DE.KYSX.IP.ACK.OPERERROR</eai:Destination>
+        
+	<!-- colas RTCE - RTLC -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EOXY_IA_RT_TRARES">GLB.BBVA.RSK.DE.RTLC.OPE_IMP_ADAPTER.INSERT.TRARES</eai:Destination>
+
+	<!-- colas TIBCO - RDR y SHIFTER -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_SS_SHIFTER">GLB.BBVA.GMA.DE.KYRS.RDR.SS.SHIFTER.REQUEST</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_CS_REFCACHE">GLB.BBVA.GMA.DE.KYRS.RDR.CS.REFCACHE.REQUEST</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYKK_SS_GETDATA">GLB.BBVA.GMA.DE.KYKK.CACHE.SS.GETDATA.REQUEST</eai:Destination>
+
+	<!-- colas RTCE - MUREX -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYFO_IA_MX_MXML">GLB.BBVA.RSK.DE.MX.EA.RECEP</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_KYFO_IA_MX_ERROR">GLB.BBVA.RSK.DE.MX.MESSAGE_ERROR.INSERT</eai:Destination>
+
+	<!-- colas RTCE - CALYPSO -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_ECFO_IA_CR_TRADES">GLB.BBVA.GMA.DE.ECFO.CR.IA.PRETRADES.ACK</eai:Destination>
+	
+	<!-- colas RTCE - Servicio de Bonos -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EYSJ_SS_BOND">GLB.BBVA.RSK.DE.EYSJ.ELARA.SS.BONDDATE.REQUEST</eai:Destination>
+
+	<!-- colas RTCE - Servicio de Dictionary -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EYSJ_SS_DICTIONARY">GLB.BBVA.RSK.DE.EYSJ.ELARA.SS.DICTIONARY.REQUEST</eai:Destination>
+
+	<!-- colas RTCE - Servicio EPUB para Calypso-->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_ECFO_EP_CR_OPER">GLB.BBVA.GMA.DE.ECFO.CR.EP.NACK.PRETRADES</eai:Destination>
+
+	<!-- colas TIBCO - DIALOGO -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_TEMB_IA_DI_FLOW">GLB.BBVA.CIB.DE.DIALOGO.OPE_IMP_ADAPTER.INSERT.FLOW</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_TEMB_IA_DI_TRADE">GLB.BBVA.CIB.DE.DIALOGO.OPE_IMP_ADAPTER.INSERT.TRADE</eai:Destination>
+
+</eai:QueuesCacheList>
+

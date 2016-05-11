@@ -1,0 +1,10 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<eai:QueuesCacheList xmlns:eai = "http://www.bbva.com/EAIFramework" xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation = "http://www.bbva.com/EAIFramework ../SharedResources/Schemas/XSD/InternalArchitecture/InternalArchitectureData.xsd"> 
+
+<!-- Servicio simple de consulta a GTR -->
+<eai:Destination DestinationType = "Queue" ServiceId = "S_KYGY_SS_GTR_PTY">GLB.BBVA.GMA.DE.KYGY.GTR.SS.TRADES</eai:Destination>
+
+<!-- Servicio compuesto de consulta a RDR -->
+<eai:Destination DestinationType = "Queue" ServiceId = "S_KYRS_CS_DICTIONARY">GLB.BBVA.GMA.DE.KYRS.RDR.CS.REFCACHE.REQUEST</eai:Destination>
+
+</eai:QueuesCacheList>

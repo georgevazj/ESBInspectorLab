@@ -1,0 +1,8 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<eai:QueuesCacheList xmlns:eai = "http://www.bbva.com/EAIFramework" xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation = "http://www.bbva.com/EAIFramework ../SharedResources/Schemas/XSD/InternalArchitecture/InternalArchitectureData.xsd"> 
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EJQP_SS_SEARCHFAC">GLB.BBVA.GTB.INT.EJQP.INTERNAL_EJQP_MESSAGE.C_SEARCH</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EJQP_SS_QUERYFAC">GLB.BBVA.GTB.INT.EJQP.INTERNAL_EJQP_MESSAGE.C_QUERY</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EJQP_SS_FCAM">GLB.BBVA.GTB.INT.EJQP.INTERNAL_EJQP_MESSAGE.C_FCAM</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EJQP_SS_FCIP">GLB.BBVA.GTB.INT.EJQP.INTERNAL_EJQP_MESSAGE.C_FCIP</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EJQP_SS_FCIPFCAM">GLB.BBVA.GTB.INT.EJQP.INTERNAL_EJQP_MESSAGE.C_FCIPFCAM</eai:Destination>
+</eai:QueuesCacheList>

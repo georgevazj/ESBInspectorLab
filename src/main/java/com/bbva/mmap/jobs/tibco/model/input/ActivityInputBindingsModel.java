@@ -14,6 +14,7 @@ public class ActivityInputBindingsModel {
     private ActivityInputBindingsRootElement activityInputBindingsRootElement;
     private ActivityInputBindingsInputElement activityInputBindingsInputElement;
     private ActivityInputBindingsTargetServicesModel activityInputBindingsTargetServicesModel;
+    private ActivityInputBindingsARCREQSModel activityInputBindingsARCREQSModel;
 
 
     @XmlElement(name = "ActivityInput")
@@ -50,5 +51,14 @@ public class ActivityInputBindingsModel {
 
     public void setActivityInputBindingsTargetServicesModel(ActivityInputBindingsTargetServicesModel activityInputBindingsTargetServicesModel) {
         this.activityInputBindingsTargetServicesModel = activityInputBindingsTargetServicesModel;
+    }
+
+    @XmlElement(name = "ARC_REQS_Main_IN")
+    public ActivityInputBindingsARCREQSModel getActivityInputBindingsARCREQSModel() {
+        return activityInputBindingsARCREQSModel;
+    }
+
+    public void setActivityInputBindingsARCREQSModel(ActivityInputBindingsARCREQSModel activityInputBindingsARCREQSModel) {
+        this.activityInputBindingsARCREQSModel = activityInputBindingsARCREQSModel;
     }
 }

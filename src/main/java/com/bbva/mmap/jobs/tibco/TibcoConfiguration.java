@@ -6,7 +6,6 @@ import com.bbva.mmap.jobs.tibco.model.input.ProcessDefinitionModel;
 import com.bbva.mmap.jobs.tibco.model.output.TibcoActivityModel;
 import com.bbva.mmap.jobs.tibco.model.output.TibcoDataModel;
 import com.bbva.mmap.jobs.tibco.model.output.TibcoOutput;
-import com.bbva.mmap.jobs.tibco.processor.TibcoJobProcessor;
 import com.bbva.mmap.jobs.tibco.processor.TibcoOutputProcessor;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;

@@ -322,4 +322,11 @@ public class FileSeeker {
         return queueName;
     }
 
+    public List<File> findFilesInPath(String rootPath){
+        File rootFile = new File(rootPath);
+        String[] tibcoExtension = {tibcoFileExtension};
+        List<File> filesListed = (List<File>) FileUtils.listFiles(rootFile,tibcoExtension,true);
+        return filesListed;
+    }
+
 }

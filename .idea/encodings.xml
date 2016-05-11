@@ -5,5 +5,7 @@
     <file url="file://$PROJECT_DIR$/config/ESBInspector.properties" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/config/ESBInspector.properties_WINDOWS" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/main/resources/de/kyrs/online/multipais/multicanal/cfg/entorno/Queues.xml" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/us/xptibco1/tibco/conftibco/queues/EJQP/GTB_EJQP_BW_FAMA/Queues.xml" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/us/xptibco1/tibco/conftibco/queues/EJQP/GTB_EJQP_BW_OPER/Queues.xml" charset="windows-1252" />
   </component>
 </project>

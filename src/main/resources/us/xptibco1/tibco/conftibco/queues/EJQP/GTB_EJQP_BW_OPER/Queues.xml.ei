@@ -1,0 +1,38 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<eai:QueuesCacheList xmlns:eai = "http://www.bbva.com/EAIFramework" xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation = "http://www.bbva.com/EAIFramework ../SharedResources/Schemas/XSD/InternalArchitecture/InternalArchitectureData.xsd"> 
+	<!-- Servicios comunes -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EJQP_SS_DICTIONARY">GLB.BBVA.GTB.INT.EJQP.SS_DICTIONARY.IN</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EJQP_SS_CROSSREF">GLB.BBVA.GTB.INT.EJQP.SS_CROSSREF.IN</eai:Destination>
+	
+	
+	<!-- Servicio createCLIP -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EJQP_CS_CREATECLIP">GLB.BBVA.GTB.INT.EJQP.CS_CREATECLIP.IN</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EJQP_SS_CREATECLIP">GLB.BBVA.GTB.INT.EJQP.SS_CREATECLIP.IN</eai:Destination>
+	
+	<!-- Servicio modifyCLIPLOAM -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EJQP_CS_MODIFYCLLO">GLB.BBVA.GTB.INT.EJQP.CS_MODIFYCLLO.IN</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EJQP_SS_MODIFYCLLO">GLB.BBVA.GTB.INT.EJQP.SS_MODIFYCLLO.IN</eai:Destination>
+	
+	<!-- Servicio loteContable -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EJQP_CS_CREATELOTC">GLB.BBVA.GTB.INT.EJQP.CS_CREATELOTC.IN</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EJQP_SS_CREATELOTC">GLB.BBVA.GTB.INT.EJQP.SS_CREATELOTC.IN</eai:Destination>
+	
+	<!-- Servicio ModifyCLIP -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EJQP_CS_MODIFYCLIP">GLB.BBVA.GTB.INT.EJQP.CS_MODIFYCLIP.IN</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EJQP_SS_MODIFYCLIP">GLB.BBVA.GTB.INT.EJQP.SS_MODIFYCLIP.IN</eai:Destination>
+	
+	<!-- Servicio modifyCLIPMapy -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EJQP_CS_MODIFYCLMP">GLB.BBVA.GTB.INT.EJQP.CS_MODIFYCLMP.IN</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EJQP_SS_MODIFYCLMP">GLB.BBVA.GTB.INT.EJQP.SS_MODIFYCLMP.IN</eai:Destination>
+	
+	<!-- Servicio checkbalance -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EJQP_SS_CHECKBALN">GLB.BBVA.GTB.INT.EJQP.SS_CHECKBALN.IN</eai:Destination>
+	
+	<!-- Servicio createMAPY -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EJQP_CS_CREATEMAPY">GLB.BBVA.GTB.INT.EJQP.CS_CRATEMAPY.IN</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EJQP_SS_CREATEMAPY">GLB.BBVA.GTB.INT.EJQP.SS_CRATEMAPY.IN</eai:Destination>
+	
+	<!-- Servicio reverseMapy -->
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EJQP_CS_REVERSEMAP">GLB.BBVA.GTB.INT.EJQP.CS_REVERSEMAPY.IN</eai:Destination>
+	<eai:Destination DestinationType = "Queue" ServiceId = "S_EJQP_SS_REVERSEMAP">GLB.BBVA.GTB.INT.EJQP.SS_REVERSEMAPY.IN</eai:Destination>
+</eai:QueuesCacheList> 

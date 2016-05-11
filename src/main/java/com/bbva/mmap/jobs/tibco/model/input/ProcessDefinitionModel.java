@@ -1,5 +1,7 @@
 package com.bbva.mmap.jobs.tibco.model.input;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.batch.item.ResourceAware;
 import org.springframework.core.io.Resource;
 
@@ -7,6 +9,8 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +21,7 @@ import java.util.List;
 @XmlRootElement(name = "ProcessDefinition")
 @XmlType(propOrder = {"applicationName","name","startName","starterModels","activityModels","groupModels"})
 public class ProcessDefinitionModel implements ResourceAware{
+    private static final Logger logger = LoggerFactory.getLogger(ProcessDefinitionModel.class);
 
     private String applicationName;
     private String name;
@@ -25,6 +30,8 @@ public class ProcessDefinitionModel implements ResourceAware{
     private List<ActivityModel> activityModels = new ArrayList<ActivityModel>();
     //private List<TransitionModel> transitionModels = new ArrayList<TransitionModel>();
     private List<GroupModel> groupModels = new ArrayList<GroupModel>();
+
+    private File inputFile;
 
     @XmlAttribute(name ="application")
     public String getApplicationName() {
@@ -79,6 +86,12 @@ public class ProcessDefinitionModel implements ResourceAware{
         String fileName = resource.getFilename();
         String[] fileNameSplit = fileName.split("__");
         this.applicationName = fileNameSplit[0];
+
+        try {
+            this.inputFile = resource.getFile();
+        } catch (IOException e) {
+            logger.error(e.toString());
+        }
     }
 
     @XmlElement(name = "group")
@@ -88,5 +101,9 @@ public class ProcessDefinitionModel implements ResourceAware{
 
     public void setGroupModels(List<GroupModel> groupModels) {
         this.groupModels = groupModels;
+    }
+
+    public File getInputFile() {
+        return inputFile;
     }
 }

@@ -1,0 +1,4 @@
+<eai:QueuesCacheList xmlns:eai="http://www.bbva.com/EAIFramework" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.bbva.com/EAIFramework ../SharedResources/Schemas/XSD/InternalArchitecture/InternalArchitectureData.xsd">
+<eai:Destination DestinationType="Queue" ServiceId="S_IEMS_SS_CHANNELING">GLB.BBVA.GTB.%ENV%.IEMS.INTERNAL.CHANNELING_ROUTES.PROCESS</eai:Destination>
+<eai:Destination DestinationType="Queue" ServiceId="S_KYNM_SS_REQUESTMD">GLB.BBVA.GMA.%ENV%.KYNM.MDS.CA.REQUEST</eai:Destination>
+</eai:QueuesCacheList>

@@ -83,6 +83,7 @@ public class TibcoListener implements JobExecutionListener {
                     newText = newText.replace("ns1:", "");
                     newText = newText.replace("ns2:", "");
                     newText = newText.replace("ns4:", "");
+                    newText = newText.replace("xsl:", "");
                     newText = newText.replace("<ns:","<");
                     newText = newText.replace("</ns:","</");
                     newText = newText.replace("xsl:", "");

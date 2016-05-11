@@ -1,7 +1,5 @@
 package com.bbva.mmap.jobs.tibco.model.input;
 
-import com.bbva.mmap.jobs.tibco.model.input.DestinationQueueModel;
-
 import javax.xml.bind.annotation.XmlElement;
 
 /**
